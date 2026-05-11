@@ -1,10 +1,11 @@
 syntax = "proto3";
 
-package sd2526.trab.api.grpc;
-
 import "google/protobuf/empty.proto";
 
-option java_package = "sd2526.trab.api.grpc";
+package sd2526.trab.api.grpc;
+
+option java_package = "sd2526.trab.impl.grpc.generated_java";
+option java_outer_classname = "MessagesProtoBuf";
 
 service GrpcMessages {
 	rpc PostMessage(PostMessageArgs) returns (PostMessageResult);
@@ -12,13 +13,7 @@ service GrpcMessages {
 	rpc GetAllInboxMessages(GetAllInboxMessagesArgs) returns (GetAllInboxMessagesResult);
 	rpc RemoveInboxMessage(RemoveInboxMessageArgs) returns (google.protobuf.Empty);
 	rpc DeleteMessage(DeleteMessageArgs) returns (google.protobuf.Empty);
-	rpc SearchInbox(SearchInboxArgs) returns (SearchInboxResult);
-	rpc DeliverInternal(GrpcMessage) returns (google.protobuf.Empty);
-	rpc DeleteInternal(DeleteInternalArgs) returns (google.protobuf.Empty);
-}
-
-message DeleteInternalArgs {
-    string mid = 1;
+	rpc SearchInbox(SearchInboxArgs) returns (SearchInboxResult);	
 }
 
 message GrpcMessage {
@@ -40,13 +35,13 @@ message PostMessageResult {
 }
 
 message GetInboxMessageArgs {
-	string name = 1;
+	string user = 1;
 	string mid = 2;
 	string pwd = 3;
 }
 
 message GetAllInboxMessagesArgs {
-	string name = 1;
+	string user = 1;
 	string pwd = 2;
 }
 
@@ -55,19 +50,19 @@ message GetAllInboxMessagesResult {
 }
 
 message RemoveInboxMessageArgs {
-	string name = 1;
+	string user = 1;
 	string mid = 2;
 	string pwd = 3;
 }
 
 message DeleteMessageArgs {
-	string name = 1;
+	string user = 1;
 	string mid = 2;
 	string pwd = 3;
 }
 
 message SearchInboxArgs {
-	string name = 1;
+	string user = 1;
 	string pwd = 2;
 	string query = 3;
 }
@@ -76,3 +71,6 @@ message SearchInboxResult {
 	repeated string mids = 1;
 }
 
+message GetInboxResult {
+	repeated string mids = 1;
+}

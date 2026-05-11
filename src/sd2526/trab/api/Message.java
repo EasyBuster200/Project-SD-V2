@@ -15,24 +15,30 @@ import jakarta.persistence.Id;
  */
 @Entity
 public class Message {
+
 	@Id
-	private String id;
+	private String id;	
+	
 	private String sender;
+		
+	private long creationTime;
+
+	private String subject;	
+	
+	@Column(length = 16384)
+	private String contents;
+	
 	@ElementCollection(fetch = FetchType.EAGER)
 	private Set<String> destination;
-	private long creationTime;
-	private String subject;
-	@Column(length = 4 * 1024)
-	private String contents;
-
+	
 	public Message() {
 		this(null, null, Collections.emptySet(), null, null);
 	}
-
+	
 	public Message(String sender, String destination, String subject, String contents) {
 		this(null, sender, Set.of(destination), subject, contents);
 	}
-
+	
 	public Message(String sender, Set<String> destinations, String subject, String contents) {
 		this(null, sender, destinations, subject, contents);
 	}
@@ -40,7 +46,7 @@ public class Message {
 	public Message(String id, String sender, String destination, String subject, String contents) {
 		this(id, sender, Set.of(destination), subject, contents);
 	}
-
+	
 	public Message(String id, String sender, Set<String> destinations, String subject, String contents) {
 		this.id = id;
 		this.sender = sender;
@@ -50,22 +56,31 @@ public class Message {
 		this.destination = new HashSet<String>(destinations);
 	}
 
+	public Message(Message other) {
+		this.id = other.id;
+		this.sender = other.sender;
+		this.subject = other.subject;
+		this.contents = other.contents;
+		this.creationTime = other.creationTime;
+		this.destination = other.destination;
+	}
+	
 	public String getSender() {
 		return sender;
 	}
-
+	
 	public void setSender(String sender) {
 		this.sender = sender;
 	}
-
+		
 	public Set<String> getDestination() {
 		return destination;
 	}
-
+	
 	public void setDestination(Set<String> destination) {
-		this.destination = destination;
+		this.destination = new HashSet<>(destination);
 	}
-
+	
 	public void addDestination(String destination) {
 		this.destination.add(destination);
 	}
@@ -104,13 +119,32 @@ public class Message {
 
 	@Override
 	public String toString() {
-		return "Message{" +
-				"id=" + id +
-				", sender='" + sender + '\'' +
-				", destination=" + destination +
-				", creationTime=" + creationTime +
-				", subject='" + subject + '\'' +
-				", contents=" + (contents.length() > 20 ? contents.substring(0, 20) : contents) +
-				'}';
+		return "MSG [id=" + id + ", sender=" + sender + ", destination=" + destination + "]";
 	}
+		
+	public Message cloneWithUserNotFound(String recipient) {
+		var unknownUserError = "FAILED TO SEND %s TO %s: UNKNOWN USER".formatted(id, recipient);
+		return new Message( "%s.%s".formatted(id, recipient), sender, senderAddress(), unknownUserError, contents);
+	}
+	
+	public Message cloneWithTimeout(String recipient) {
+		var unknownUserError = "FAILED TO SEND %s TO %s: TIMEOUT".formatted(id, recipient);
+		return new Message( "%s.%s".formatted(id, recipient), sender, senderAddress(), unknownUserError, contents);
+	}
+	
+	public String originId() {
+		return "%s-%s".formatted( sender, creationTime );
+	}
+	
+	public String senderAddress() {
+		int i = sender.indexOf('<');
+		if( i < 0 )
+			return sender;
+		else
+			return sender.substring(i + 1, sender.indexOf('>'));
+	}
+	
+	public String senderName() {
+		return senderAddress().split("@", 2)[0];
+	}	
 }

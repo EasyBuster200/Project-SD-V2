@@ -3,11 +3,11 @@
 	<session-factory>
 		<!-- JDBC Database connection settings -->
 		<property name="connection.driver_class">org.hsqldb.jdbcDriver</property>
-		<property name="connection.url">jdbc:hsqldb:file:/tmp/db</property>
+		<property name="connection.url">jdbc:hsqldb:file:/tmp/foo</property>
 		<property name="connection.username">sa</property>
 		<property name="connection.password"></property>
 		<!-- JDBC connection pool settings ... using built-in test pool -->
-		<property name="connection.pool_size">128</property>
+		<property name="connection.pool_size">64</property>
 		<!-- Echo the SQL to stdout -->
 		<property name="show_sql">true</property>
 		<!-- Set the current session context -->
@@ -20,9 +20,8 @@
 		<property name="hibernate.dbcp.maxIdle">10</property>
 		<property name="hibernate.dbcp.minIdle">5</property>
 		<property name="hibernate.dbcp.maxWaitMillis">-1</property>
-		<!-- Entities stored in the database -->
 		<mapping class="sd2526.trab.api.User" />
-		<mapping class="sd2526.trab.api.Message" />
-		<mapping class="sd2526.trab.server.persistence.InboxEntry" />
+		<mapping class="sd2526.trab.api.Message"/>
+		<mapping class="sd2526.trab.impl.java.servers.InboxEntry"/>
 	</session-factory>
 </hibernate-configuration>

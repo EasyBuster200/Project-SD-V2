@@ -2,7 +2,6 @@ package sd2526.trab.api;
 
 import java.util.Objects;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
@@ -11,11 +10,12 @@ import jakarta.persistence.Id;
  */
 @Entity
 public class User {
-    @Id
+	
+	@Id
     private String name;
+	
     private String pwd;
     private String domain;
-    @Column(length = 255)
     private String displayName;
 
     public User() {
@@ -65,19 +65,6 @@ public class User {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        User other = (User) obj;
-        return Objects.equals(displayName, other.displayName) && Objects.equals(domain, other.domain)
-                && Objects.equals(name, other.name) && Objects.equals(pwd, other.pwd);
-    }
-
-    @Override
     public String toString() {
         return "User{" +
                 "name='" + name + '\'' +
@@ -86,4 +73,23 @@ public class User {
                 ", domain='" + domain + '\'' +
                 '}';
     }
+    
+    public User copyWithoutPassword() {
+		return new User(name, pwd, displayName, domain);
+	}
+    
+    public User updateFrom( User other ) {
+		return new User( name, 
+				other.pwd != null ? other.pwd : pwd, 
+				other.displayName != null ? other.displayName : displayName,
+				other.domain != null ? other.domain : domain);
+	}
+    
+	public boolean matches(User other) {
+		if (this == other)
+			return true;
+		if (other == null)
+			return false;
+		return Objects.equals(displayName, other.displayName) && Objects.equals(name, other.name) && Objects.equals(pwd, other.pwd);
+	}
 }
