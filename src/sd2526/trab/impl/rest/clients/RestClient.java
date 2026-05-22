@@ -4,6 +4,7 @@ import static sd2526.trab.api.java.Result.error;
 import static sd2526.trab.api.java.Result.ok;
 import static sd2526.trab.api.java.Result.ErrorCode.INTERNAL_ERROR;
 import static sd2526.trab.api.java.Result.ErrorCode.TIMEOUT;
+import sd2526.trab.impl.utils.SSL;
 
 import java.util.function.Supplier;
 import java.util.logging.Logger;
@@ -43,7 +44,12 @@ public class RestClient {
 
 		config.property(ClientProperties.READ_TIMEOUT, READ_TIMEOUT);
 		config.property(ClientProperties.CONNECT_TIMEOUT, CONNECT_TIMEOUT);
-		this.client = ClientBuilder.newClient(config);
+		this.client = ClientBuilder.newBuilder()
+					.withConfig(config)
+					.sslContext(SSL.clientContext())
+					.hostnameVerifier((hostname, session) -> true)
+					.build();
+					
 		this.target = client.target( serverURI ).path( servicePath );
 	}
 
