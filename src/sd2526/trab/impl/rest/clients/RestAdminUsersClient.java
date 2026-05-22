@@ -10,6 +10,7 @@ import sd2526.trab.api.java.Result;
 import sd2526.trab.api.rest.RestUsers;
 import sd2526.trab.impl.api.java.AdminUsers;
 import sd2526.trab.impl.api.rest.RestAdminUsers;
+import sd2526.trab.impl.utils.ServerSecret;
 
 public class RestAdminUsersClient extends RestClient implements AdminUsers {
 
@@ -27,6 +28,7 @@ public class RestAdminUsersClient extends RestClient implements AdminUsers {
 		return super.toJavaResult( target
 				.path(RestAdminUsers.ADMIN)
 				.request()
+				.header(ServerSecret.HEADER, ServerSecret.get())
 				.accept( MediaType.APPLICATION_JSON)
 				.post( Entity.json( names )), new GenericType<Set<String>>() {});
 	}

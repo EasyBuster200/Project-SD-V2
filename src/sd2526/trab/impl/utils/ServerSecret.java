@@ -1,0 +1,26 @@
+package sd2526.trab.impl.utils;
+
+public class ServerSecret {
+
+    public static final String HEADER = "X-Secret";
+    public static final String ARG = "-secret";
+
+    private static String secret = "";
+
+    public static void set(String value) {
+        secret = value == null ? "" : value;
+    }
+
+    public static String get() {
+        return secret;
+    }
+
+    public static void parse(String[] args) {
+        for (int i = 0; i < args.length - 1; i++) {
+            if (ARG.equals(args[i])) {
+                set(args[i + 1]);
+                return;
+            }
+        }
+    }
+}

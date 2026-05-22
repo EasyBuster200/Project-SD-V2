@@ -7,6 +7,7 @@ import sd2526.trab.api.java.Result;
 import sd2526.trab.api.rest.RestMessages;
 import sd2526.trab.impl.api.java.AdminMessages;
 import sd2526.trab.impl.api.rest.RestAdminMessages;
+import sd2526.trab.impl.utils.ServerSecret;
 
 public class RestAdminMessagesClient extends RestClient implements AdminMessages {
 
@@ -33,6 +34,7 @@ public class RestAdminMessagesClient extends RestClient implements AdminMessages
 		return super.toJavaResult( target
 				.path(RestAdminMessages.ADMIN)
 				.request()
+				.header(ServerSecret.HEADER, ServerSecret.get())
 				.post( Entity.entity(msg, MediaType.APPLICATION_JSON )));
 	}
 
@@ -41,6 +43,7 @@ public class RestAdminMessagesClient extends RestClient implements AdminMessages
 				.path(RestAdminMessages.ADMIN)
 				.path( mid )
 				.request()
+				.header(ServerSecret.HEADER, ServerSecret.get())
 				.delete());
 	}
 	
@@ -50,6 +53,7 @@ public class RestAdminMessagesClient extends RestClient implements AdminMessages
 				.path(RestAdminMessages.INBOX)
 				.path( name )
 				.request()
+				.header(ServerSecret.HEADER, ServerSecret.get())
 				.delete());
 	}
 }
