@@ -23,7 +23,6 @@ public class AdminSecretFilter implements ContainerRequestFilter {
         String provided = ctx.getHeaderString(ServerSecret.HEADER);
 
         if (expected == null || expected.isEmpty()) {
-            // No secret configured -> nothing to check
             return;
         }
 

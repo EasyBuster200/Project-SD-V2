@@ -1,0 +1,6 @@
+- [User profile](user_profile.md) — Duarte, FCT/NOVA student, Distributed Systems TP2 (prof. Nuno Preguiça)
+- [Project SD2526 TP2 overview](project_sd2526_tp2.md) — TP2 extension: Security ✅ E1 Zoho ✅ F1 Kafka 🚧 (deadline 2026-05-26)
+- [F1 Kafka design plan](project_f1_kafka_plan.md) — agreed architecture for state-machine replication of messages domain via Kafka
+- [Build/test commands](reference_sd2526_commands.md) — `mvn package && docker build --no-cache`, tester via `MSYS_NO_PATHCONV=1 sh test-sd-tp2.sh`
+- [Code style for this codebase](feedback_sd2526_style.md) — Result<T> chaining, Java records, Gson, Hibernate via DB.transaction, match teacher's pragmatic style
+- [Collaboration style](feedback_collab_style.md) — user provides detailed handoffs; ask for source files instead of guessing patterns

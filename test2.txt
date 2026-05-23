@@ -1,346 +1,0 @@
-Using default tag: latest
-latest: Pulling from nunopreguica/sd2526-tester-tp2
-Digest: sha256:f63b30cfca835e0e158621474876143863c42111f32a4dd5f84e4d21e16121e4
-Status: Image is up to date for nunopreguica/sd2526-tester-tp2:latest
-docker.io/nunopreguica/sd2526-tester-tp2:latest
-SD2526 +++ TP2 +++ Testing image: sd2526-tp2-65154
-Version 0.99.2 - 14/05/2026
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-1a )	 Testing Docker environment [executing: docker info]
----------------------------------------------------------------
-Docker ID: 3a8af8e3-d206-48c9-ae80-0b338551efc5
-OK                                                                                                                   
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-1b )	Testing: Docker engine CPU cores...
----------------------------------------------------------------
-OK                                                                                                                   
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-1c )	Checking messages.props [executing: docker run sd2526-tp2-65154 /bin/cat messages.props and nunopreguica/sd2526tpbase]
----------------------------------------------------------------
-; Read properties from: ./messages.props
-;	MESSAGES_GRPC_PORT=
-;	USERS_REST_EXTRA_ARGS=
-;	USERS_GRPC_PORT=
-;	DISCOVERY_MULTICAST_PORT=2266
-;	MESSAGES_GRPC_EXTRA_ARGS=
-;	USERS_KEYSTORES=users.ourorg0,users-0.jks,changeit users.ourorg1,users-1.jks,changeit users.ourorg2,users-2.jks,changeit
-;	MESSAGES_REST_PROXY_SERVER_MAINCLASS=
-;	CLIENT_TRUSTSTORE=client-truststore.jks
-;	MESSAGES_REP_EXTRA_ARGS_FIRST=
-;	MESSAGES_REST_PORT=4567
-;	SERVERS_KEYSTORES=messages0.ourorg0,messages0-0.jks,changeit messages1.ourorg0,messages1-0.jks,changeit messages2.ourorg0,messages2-0.jks,changeit messages0.ourorg1,messages0-1.jks,changeit messages1.ourorg1,messages1-1.jks,changeit messages2.ourorg1,messages2-1.jks,changeit messages.ourorg2,messages-2.jks,changeit
-;	MESSAGES_REST_PROXY_EXTRA_ARGS=
-;	CLIENT_TRUSTSTORE_PWD=changeit
-;	USERS_REST_SERVER_MAINCLASS=sd2526.trab.impl.rest.servers.RestUsersServer
-;	GATEWAY_REST_SERVER_MAINCLASS=sd2526.trab.impl.rest.servers.RestGatewayServer
-;	DISCOVERY_MULTICAST_IP=226.226.226.226
-;	USERS_GRPC_SERVER_MAINCLASS=
-;	GATEWAY_REST_EXTRA_ARGS=
-;	MESSAGES_REST_SERVER_MAINCLASS=sd2526.trab.impl.rest.servers.RestMessagesServer
-;	USERS_REST_PORT=3456
-;	MESSAGES_REST_PROXY_PORT=
-;	MESSAGES_REST_EXTRA_ARGS=
-;	MESSAGES_REP_EXTRA_ARGS_OTHER=
-;	GATEWAY_REST_PORT=6666
-;	MESSAGES_GRPC_SERVER_MAINCLASS=
-;	USERS_GRPC_EXTRA_ARGS=
-;	MESSAGES_REP_SERVER_MAINCLASS=
-;	MESSAGES_REP_PORT=
-OK                                                                                                                   
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-1d )	Checking TLS keys in client truststore
----------------------------------------------------------------
-OK                                                                                                                   
-Skipping GRPC tests. GRPC mainclass not defined in messages.props. PLEASE CHECK if you have implemented GRPC.
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-101a )	 Testing Discovery Service [ listening for announcements... ] : [[1,1]] REST servers ; [] GRPC servers; [] PROXY servers
----------------------------------------------------------------
-Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-INFO: Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-Starting REST services: Messages : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestMessagesServer> ; TLS : true
-INFO: Starting REST services: Messages : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestMessagesServer> ; TLS : true
-sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                Discovery started @ /226.226.226.226:2266
-INFO: Users@ourorg0	https://users.ourorg0:3456/rest
-INFO: Messages@ourorg0	https://messages0.ourorg0:4567/rest
-OK                                                                                                                   
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-101b )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-101c )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-102a )	 Testing CreateUser and GetUser : [[1]] REST servers ; [] GRPC servers; [] PROXY servers
----------------------------------------------------------------
-Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-INFO: Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                ---------- Creating 5 users
-1/5                                                                                2/5                                                                                3/5                                                                                4/5                                                                                5/5                                                                                sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                ---------- Getting 5 users
----------- Testing post idempotence
----------- Getting invalid users
----------- Creating invalid users
-OK                                                                                                                   
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-102b )	 Testing UpdateUser : [[1]] REST servers ; [] GRPC servers; [] PROXY servers
----------------------------------------------------------------
-Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-INFO: Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                ---------- Creating 5 users
-1/5                                                                                2/5                                                                                3/5                                                                                4/5                                                                                5/5                                                                                sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                ---------- Updating users correctly
-sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                ---------- Checking if changes were effective
----------- Updating users incorrectly
----------- Checking if no invalid updates were made...
-OK                                                                                                                   
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-102c )	 Testing DeleteUser : [[1]] REST servers ; [] GRPC servers; [] PROXY servers
----------------------------------------------------------------
-Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-INFO: Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                ---------- Creating 10 users
-1/10                                                                                2/10                                                                                3/10                                                                                4/10                                                                                5/10                                                                                6/10                                                                                7/10                                                                                8/10                                                                                9/10                                                                                10/10                                                                                sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                ---------- Deleting 5 correctly
-sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                ---------- Checking if deletes were effective
----------- Deleting users incorrectly
-sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                ---------- Checking if no invalid deletes were made...
-OK                                                                                                                   
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-103a )	 Testing Messages Post/Get : [[1,1]] REST servers ; [] GRPC servers; [] PROXY servers
----------------------------------------------------------------
-Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-INFO: Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-Starting REST services: Messages : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestMessagesServer> ; TLS : true
-INFO: Starting REST services: Messages : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestMessagesServer> ; TLS : true
-sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                1/10                                                                                2/10                                                                                3/10                                                                                4/10                                                                                5/10                                                                                6/10                                                                                7/10                                                                                8/10                                                                                9/10                                                                                10/10                                                                                +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-103a )	 Successfully posted and retrieved 20 messages
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-103a )	 Checking post message idempotence
----------------------------------------------------------------
-OK                                                                                                                   
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-103b )	 Testing Messages Remove from Inbox : [[1,1]] REST servers ; [] GRPC servers; [] PROXY servers
----------------------------------------------------------------
-Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-INFO: Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-Starting REST services: Messages : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestMessagesServer> ; TLS : true
-INFO: Starting REST services: Messages : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestMessagesServer> ; TLS : true
-sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                1/10                                                                                2/10                                                                                3/10                                                                                4/10                                                                                5/10                                                                                6/10                                                                                7/10                                                                                8/10                                                                                9/10                                                                                10/10                                                                                1/15                                                                                2/15                                                                                3/15                                                                                4/15                                                                                5/15                                                                                6/15                                                                                7/15                                                                                8/15                                                                                9/15                                                                                10/15                                                                                11/15                                                                                12/15                                                                                13/15                                                                                14/15                                                                                15/15                                                                                +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-103b )	 Successfully tested inbox removal
----------------------------------------------------------------
-OK                                                                                                                   
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-103c )	 Testing Messages Delete (sender deletes globally) : [[1,1]] REST servers ; [] GRPC servers; [] PROXY servers
----------------------------------------------------------------
-Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-INFO: Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-Starting REST services: Messages : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestMessagesServer> ; TLS : true
-INFO: Starting REST services: Messages : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestMessagesServer> ; TLS : true
-sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                1/10                                                                                2/10                                                                                3/10                                                                                4/10                                                                                5/10                                                                                6/10                                                                                7/10                                                                                8/10                                                                                9/10                                                                                10/10                                                                                +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-103c )	 Successfully tested message deletion by sender
----------------------------------------------------------------
-OK                                                                                                                   
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-103d )	 Testing Messages Search : [[1,1]] REST servers ; [] GRPC servers; [] PROXY servers
----------------------------------------------------------------
-Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-INFO: Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-Starting REST services: Messages : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestMessagesServer> ; TLS : true
-INFO: Starting REST services: Messages : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestMessagesServer> ; TLS : true
-sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                1/5                                                                                2/5                                                                                3/5                                                                                4/5                                                                                5/5                                                                                +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-103d )	 Successfully tested message search
----------------------------------------------------------------
-OK                                                                                                                   
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-104a )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-104b )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-104c )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-105a )	 Testing Multi-Domain Message Delivery : [[1,1],[1,1]] REST servers ; [] GRPC servers; [] PROXY servers
----------------------------------------------------------------
-Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-INFO: Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-Starting REST services: Messages : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestMessagesServer> ; TLS : true
-INFO: Starting REST services: Messages : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestMessagesServer> ; TLS : true
-Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-INFO: Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-Starting REST services: Messages : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestMessagesServer> ; TLS : true
-INFO: Starting REST services: Messages : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestMessagesServer> ; TLS : true
-sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                1/5                                                                                2/5                                                                                3/5                                                                                4/5                                                                                5/5                                                                                1/5                                                                                2/5                                                                                3/5                                                                                4/5                                                                                5/5                                                                                ---------- Sending 10 cross-domain messages across 2 domains
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-105a )	 Successfully tested cross-domain message delivery across 2 domains
----------------------------------------------------------------
-OK                                                                                                                   
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-105b )	 Testing Multi-Domain Partial Delivery (invalid remote destinations) : [[1,1],[1,1]] REST servers ; [] GRPC servers; [] PROXY servers
----------------------------------------------------------------
-Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-INFO: Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-Starting REST services: Messages : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestMessagesServer> ; TLS : true
-INFO: Starting REST services: Messages : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestMessagesServer> ; TLS : true
-Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-INFO: Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-Starting REST services: Messages : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestMessagesServer> ; TLS : true
-INFO: Starting REST services: Messages : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestMessagesServer> ; TLS : true
-sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                1/5                                                                                2/5                                                                                3/5                                                                                4/5                                                                                5/5                                                                                1/5                                                                                2/5                                                                                3/5                                                                                4/5                                                                                5/5                                                                                ---------- Checking failure notifications for unknown remote destinations
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-105b )	 Successfully tested partial delivery with invalid remote destinations
----------------------------------------------------------------
-OK                                                                                                                   
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-105c )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-105d )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-105e )	 Testing Multi-Domain Mix (delete + removeFromInbox + search) : [[1,1],[1,1]] REST servers ; [] GRPC servers; [] PROXY servers
----------------------------------------------------------------
-Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-INFO: Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-Starting REST services: Messages : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestMessagesServer> ; TLS : true
-INFO: Starting REST services: Messages : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestMessagesServer> ; TLS : true
-Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-INFO: Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-Starting REST services: Messages : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestMessagesServer> ; TLS : true
-INFO: Starting REST services: Messages : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestMessagesServer> ; TLS : true
-sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                1/5                                                                                2/5                                                                                3/5                                                                                4/5                                                                                5/5                                                                                1/5                                                                                2/5                                                                                3/5                                                                                4/5                                                                                5/5                                                                                ---------- Sending 10 cross-domain messages across 2 domains
----------- Mixed phase: removeFromInbox, search, delete and post intermixed
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-105e )	 Waiting for async propagation to retry search in ourorg0...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-105e )	 Waiting for async propagation across domains...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-105e )	 Successfully tested cross-domain mix (removeFromInbox + search + delete + concurrent posts) across 2 domains
----------------------------------------------------------------
-OK                                                                                                                   
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-106a )	 Testing Multi-Domain Message Delivery : [[1,1],[1,1],[0,0]] REST servers ; [[0,0],[0,0],[1,1]] GRPC servers; [] PROXY servers
----------------------------------------------------------------
-Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-INFO: Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-Starting REST services: Messages : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestMessagesServer> ; TLS : true
-INFO: Starting REST services: Messages : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestMessagesServer> ; TLS : true
-Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-INFO: Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-Starting REST services: Messages : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestMessagesServer> ; TLS : true
-INFO: Starting REST services: Messages : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestMessagesServer> ; TLS : true
-sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                1/5                                                                                2/5                                                                                3/5                                                                                4/5                                                                                5/5                                                                                1/5                                                                                2/5                                                                                3/5                                                                                4/5                                                                                5/5                                                                                ---------- Sending 10 cross-domain messages across 2 domains
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-106a )	 Successfully tested cross-domain message delivery across 2 domains
----------------------------------------------------------------
-OK                                                                                                                   
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-106b )	 Testing Multi-Domain Message Delivery : [[1,0],[0,1]] REST servers ; [[0,1],[1,0]] GRPC servers; [] PROXY servers
----------------------------------------------------------------
-Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-INFO: Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-Starting GRPC services: Users : <1> replicas : mainClass = <> ; TLS : true
-INFO: Starting GRPC services: Users : <1> replicas : mainClass = <> ; TLS : true
-FAILED: Cannot execute server: users.ourorg1 [empty mainclass, check value in .props file]
-
-
-=================================================================================
--------------------------------------------------------------------------
------------------------------------------------------------------------------------
-users.ourorg0
------------------------------------------------------------------------------------
-
-=================================================================================
-
-
-Continue (Y/N) ?
-Y
-Continuing to next test...
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-107a )	 Testing Messages operations through Gateway : [[1,1,1]] REST servers ; [] GRPC servers; [] PROXY servers
----------------------------------------------------------------
-Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-INFO: Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-Starting REST services: Messages : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestMessagesServer> ; TLS : true
-INFO: Starting REST services: Messages : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestMessagesServer> ; TLS : true
-Starting REST services: Gateway : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestGatewayServer> ; TLS : true
-INFO: Starting REST services: Gateway : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestGatewayServer> ; TLS : true
-sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-107a )	 Posted message through Gateway with id: ourorg0+0001
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-107a )	 Successfully tested Messages operations through Gateway
----------------------------------------------------------------
-OK                                                                                                                   
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-108a )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-108b )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-109a )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-109b )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-109c )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-109d )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-110a )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-110b )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-110c )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-110d )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-111a )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-112a )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-112b )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-113a )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-113b )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-113c )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-114a )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-114b )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-114c )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-115a )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-115b )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-116a )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-116b )	  Skipped...
----------------------------------------------------------------
-Skipped GRPC tests. GRPC mainclass not defined in trab.props. PLEASE CHECK if you have implemented GRPC.
-Test complete...

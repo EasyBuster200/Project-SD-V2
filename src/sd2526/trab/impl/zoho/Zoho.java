@@ -164,9 +164,4 @@ public class Zoho {
 		}
 		return deleted;
 	}
-
-	@SuppressWarnings("unused")
-	private static ZohoGenericReply _unusedReference() {
-		return null;
-	}
 }
