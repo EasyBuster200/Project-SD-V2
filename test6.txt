@@ -1,0 +1,322 @@
+Using default tag: latest
+latest: Pulling from nunopreguica/sd2526-tester-tp2
+Digest: sha256:f63b30cfca835e0e158621474876143863c42111f32a4dd5f84e4d21e16121e4
+Status: Image is up to date for nunopreguica/sd2526-tester-tp2:latest
+docker.io/nunopreguica/sd2526-tester-tp2:latest
+SD2526 +++ TP2 +++ Testing image: sd2526-tp2-65154
+Version 0.99.2 - 14/05/2026
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+1a )	 Testing Docker environment [executing: docker info]
+---------------------------------------------------------------
+Docker ID: 3a8af8e3-d206-48c9-ae80-0b338551efc5
+OK                                                                                                                   
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+1b )	Testing: Docker engine CPU cores...
+---------------------------------------------------------------
+OK                                                                                                                   
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+1c )	Checking messages.props [executing: docker run sd2526-tp2-65154 /bin/cat messages.props and nunopreguica/sd2526tpbase]
+---------------------------------------------------------------
+; Read properties from: ./messages.props
+;	MESSAGES_GRPC_PORT=
+;	USERS_REST_EXTRA_ARGS=-secret secret
+;	USERS_GRPC_PORT=
+;	DISCOVERY_MULTICAST_PORT=2266
+;	MESSAGES_GRPC_EXTRA_ARGS=
+;	USERS_KEYSTORES=users.ourorg0,users-0.ks,changeit users.ourorg1,users-1.ks,changeit users.ourorg2,users-2.ks,changeit
+;	MESSAGES_REST_PROXY_SERVER_MAINCLASS=sd2526.trab.impl.rest.servers.RestZohoMessagesServer
+;	CLIENT_TRUSTSTORE=client-truststore.ks
+;	MESSAGES_REP_EXTRA_ARGS_FIRST=
+;	MESSAGES_REST_PORT=4567
+;	SERVERS_KEYSTORES=messages0.ourorg0,messages0-0.ks,changeit messages1.ourorg0,messages1-0.ks,changeit messages2.ourorg0,messages2-0.ks,changeit messages0.ourorg1,messages0-1.ks,changeit messages1.ourorg1,messages1-1.ks,changeit messages2.ourorg1,messages2-1.ks,changeit messages.ourorg2,messages-2.ks,changeit
+;	MESSAGES_REST_PROXY_EXTRA_ARGS=-secret secret
+;	CLIENT_TRUSTSTORE_PWD=changeit
+;	USERS_REST_SERVER_MAINCLASS=sd2526.trab.impl.rest.servers.RestUsersServer
+;	GATEWAY_REST_SERVER_MAINCLASS=sd2526.trab.impl.rest.servers.RestGatewayServer
+;	DISCOVERY_MULTICAST_IP=226.226.226.226
+;	USERS_GRPC_SERVER_MAINCLASS=
+;	GATEWAY_REST_EXTRA_ARGS=-secret secret
+;	MESSAGES_REST_SERVER_MAINCLASS=sd2526.trab.impl.rest.servers.RestMessagesServer
+;	USERS_REST_PORT=3456
+;	MESSAGES_REST_PROXY_PORT=4567
+;	MESSAGES_REST_EXTRA_ARGS=-secret secret
+;	MESSAGES_REP_EXTRA_ARGS_OTHER=
+;	GATEWAY_REST_PORT=6666
+;	MESSAGES_GRPC_SERVER_MAINCLASS=
+;	USERS_GRPC_EXTRA_ARGS=
+;	MESSAGES_REP_SERVER_MAINCLASS=
+;	MESSAGES_REP_PORT=
+OK                                                                                                                   
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+1d )	Checking TLS keys in client truststore
+---------------------------------------------------------------
+OK                                                                                                                   
+Skipping GRPC tests. GRPC mainclass not defined in messages.props. PLEASE CHECK if you have implemented GRPC.
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+101a )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+101b )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+101c )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+102a )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+102b )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+102c )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+103a )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+103b )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+103c )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+103d )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+104a )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+104b )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+104c )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+105a )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+105b )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+105c )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+105d )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+105e )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+106a )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+106b )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+107a )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+108a )	 Testing Multi-Domain Message Delivery : [[1,1],[1,0]] REST servers ; [] GRPC servers; [[0,0],[0,1]] PROXY servers
+---------------------------------------------------------------
+Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
+INFO: Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
+Starting REST services: Messages : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestMessagesServer> ; TLS : true
+INFO: Starting REST services: Messages : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestMessagesServer> ; TLS : true
+Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
+INFO: Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
+Starting REST services: Messages PROXY : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestZohoMessagesServer> ; TLS : true
+INFO: Starting REST services: Messages PROXY : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestZohoMessagesServer> ; TLS : true
+sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                1/5                                                                                2/5                                                                                3/5                                                                                4/5                                                                                5/5                                                                                1/1                                                                                ---------- Sending 1 cross-domain messages across 2 domains
+sleeping: 9 s                                                                                sleeping: 8 s                                                                                sleeping: 7 s                                                                                sleeping: 6 s                                                                                sleeping: 5 s                                                                                sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                sleeping: 9 s                                                                                sleeping: 8 s                                                                                sleeping: 7 s                                                                                sleeping: 6 s                                                                                sleeping: 5 s                                                                                sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+108a )	 Successfully tested cross-domain message delivery to proxy across 2 domains
+---------------------------------------------------------------
+OK                                                                                                                   
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+108b )	 Testing Multi-Domain Message Delivery : [[1,1],[1,0]] REST servers ; [] GRPC servers; [[0,0],[0,1]] PROXY servers
+---------------------------------------------------------------
+Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
+INFO: Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
+Starting REST services: Messages : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestMessagesServer> ; TLS : true
+INFO: Starting REST services: Messages : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestMessagesServer> ; TLS : true
+Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
+INFO: Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
+Starting REST services: Messages PROXY : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestZohoMessagesServer> ; TLS : true
+INFO: Starting REST services: Messages PROXY : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestZohoMessagesServer> ; TLS : true
+sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                1/5                                                                                2/5                                                                                3/5                                                                                4/5                                                                                5/5                                                                                1/1                                                                                ---------- Sending 1 cross-domain messages across 2 domains
+sleeping: 9 s                                                                                sleeping: 8 s                                                                                sleeping: 7 s                                                                                sleeping: 6 s                                                                                sleeping: 5 s                                                                                sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                FAILED: GetMessage : user = tricia.mcmillan12 ; mid = ourorg0+0001 ; pwd = 6l8z6j795
+Expected : Message{id=ourorg0+0001, sender='Douglas Reynholm <douglas.reynholm9@ourorg0>', destination=[tricia.mcmillan12@ourorg1, nori10@ourorg0], creationTime=1779539373110, subject='Ah, well, prepare to put mustard on those words, for you will soon be consuming them along with this slice of humble pie that comes direct from the oven of shame set at gas mark 'egg on your face'!', contents=Jen, if this needle }; 
+received : Message{id=ourorg0+0001, sender='Douglas Reynholm <douglas.reynholm9@ourorg0>', destination=[tricia.mcmillan12@ourorg1, nori10@ourorg0], creationTime=1779539373110, subject='Ah, well, prepare to put mustard on those words, for you will soon be consuming them along with this slice of humble pie that comes direct from the oven of shame set at gas mark &#39;egg on your face&#39;!', contents=Jen, if this needle }
+
+
+=================================================================================
+-------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+users.ourorg0
+-----------------------------------------------------------------------------------
+MY DOMAIN:ourorg0
+INFO: Starting discovery on multicast group: /226.226.226.226, port: 2266
+INFO: Starting Discovery announcements on: /226.226.226.226:2266 for: Users@ourorg0 -> https://users.ourorg0:3456/rest
+INFO: Users Server ready @ https://users.ourorg0:3456/rest
+AdminSecretFilter: path='users'
+AdminSecretFilter: not admin path, allowing
+INFO: postUser: user=User{name='prostetnic.vogon.jeltz7', pwd='3j2t1b0biel962f', displayName='Prostetnic Vogon Jeltz', domain='ourorg0'}
+INFO: HHH000001: Hibernate ORM core version 7.2.4.FinalWARN: HHH10001002: Using built-in connection pool (not intended for production use)INFO: HHH10001005: Database info:
+	Database JDBC URL [jdbc:hsqldb:file:/tmp/foo]
+	Database driver: HSQL Database Engine Driver
+	Database dialect: HSQLDialect
+	Database version: 2.7.4
+	Default catalog/schema: PUBLIC/PUBLIC
+	Autocommit mode: false
+	Isolation level: READ_COMMITTED
+	JDBC fetch size: none
+	Pool: DriverManagerConnectionProvider
+	Minimum pool size: 1
+Hibernate: drop table if exists InboxEntry cascade 
+Hibernate: drop table if exists Message cascade 
+Hibernate: drop table if exists Message_destination cascade 
+Hibernate: drop table if exists User cascade 
+Hibernate: create table InboxEntry (id varchar(255), mid varchar(255) not null, recipient varchar(255) not null, primary key (mid, recipient))
+Hibernate: create table Message (creationTime bigint not null, contents varchar(16384), id varchar(255) not null, sender varchar(255), subject varchar(255), primary key (id))
+Hibernate: create table Message_destination (Message_id varchar(255) not null, destination varchar(255))
+Hibernate: create table User (displayName varchar(255), domain varchar(255), name varchar(255) not null, pwd varchar(255), primary key (name))
+Hibernate: alter table InboxEntry add constraint FK_INBOX_MESSAGE FOREIGN KEY (id) REFERENCES Message(id) ON DELETE RESTRICT
+Hibernate: alter table Message_destination add constraint FK490i61489hp4breu8d0xkaokn foreign key (Message_id) references Message
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+Hibernate: insert into User (displayName,domain,pwd,name) values (?,?,?,?)
+	Maximum pool size: 64AdminSecretFilter: path='users'
+AdminSecretFilter: not admin path, allowing
+INFO: postUser: user=User{name='helen.buley8', pwd='gutul25175p50au5', displayName='Helen Buley', domain='ourorg0'}
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+Hibernate: insert into User (displayName,domain,pwd,name) values (?,?,?,?)
+AdminSecretFilter: path='users'
+AdminSecretFilter: not admin path, allowing
+INFO: postUser: user=User{name='douglas.reynholm9', pwd='3g8q5l50', displayName='Douglas Reynholm', domain='ourorg0'}
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+Hibernate: insert into User (displayName,domain,pwd,name) values (?,?,?,?)
+AdminSecretFilter: path='users'
+AdminSecretFilter: not admin path, allowing
+INFO: postUser: user=User{name='nori10', pwd='5dh2u60iqac41y4', displayName='Nori', domain='ourorg0'}
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+Hibernate: insert into User (displayName,domain,pwd,name) values (?,?,?,?)
+AdminSecretFilter: path='users'
+AdminSecretFilter: not admin path, allowing
+INFO: postUser: user=User{name='victoria.reynholm11', pwd='y820c3564u', displayName='Victoria Reynholm', domain='ourorg0'}
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+Hibernate: insert into User (displayName,domain,pwd,name) values (?,?,?,?)
+AdminSecretFilter: path='users/douglas.reynholm9'
+AdminSecretFilter: not admin path, allowing
+INFO: getUser : name = douglas.reynholm9, pwd = 3g8q5l50
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+AdminSecretFilter: path='users/admin'
+AdminSecretFilter: ADMIN path. expected secret='secret', provided='secret'
+AdminSecretFilter: secret matches, allowing
+INFO: checkUsers : addresses = [nori10@ourorg0]
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+
+-----------------------------------------------------------------------------------
+messages0.ourorg0
+-----------------------------------------------------------------------------------
+MY DOMAIN:ourorg0
+INFO: Starting discovery on multicast group: /226.226.226.226, port: 2266
+INFO: Starting Discovery announcements on: /226.226.226.226:2266 for: Messages@ourorg0 -> https://messages0.ourorg0:4567/rest
+INFO: Messages Server ready @ https://messages0.ourorg0:4567/rest
+AdminSecretFilter: path='messages'
+AdminSecretFilter: not admin path, allowing
+INFO: postMessage : pwd = 3g8q5l50, msg = MSG [id=null, sender=douglas.reynholm9@ourorg0, destination=[tricia.mcmillan12@ourorg1, nori10@ourorg0]]
+Local Recipients:[nori10@ourorg0]
+Remote Recipients:[tricia.mcmillan12@ourorg1]
+INFO: postToLocalInboxes : localRecipients = [nori10@ourorg0], msg = MSG [id=ourorg0+0001, sender=Douglas Reynholm <douglas.reynholm9@ourorg0>, destination=[tricia.mcmillan12@ourorg1, nori10@ourorg0]]
+INFO: deliverToKnownLocalRecipients : local known addresses = [nori10@ourorg0], msg = MSG [id=ourorg0+0001, sender=Douglas Reynholm <douglas.reynholm9@ourorg0>, destination=[tricia.mcmillan12@ourorg1, nori10@ourorg0]]
+INFO: HHH000001: Hibernate ORM core version 7.2.4.FinalWARN: HHH10001002: Using built-in connection pool (not intended for production use)INFO: HHH10001005: Database info:
+	Database JDBC URL [jdbc:hsqldb:file:/tmp/foo]
+	Database driver: HSQL Database Engine Driver
+	Database dialect: HSQLDialect
+	Database version: 2.7.4
+	Default catalog/schema: PUBLIC/PUBLIC
+	Autocommit mode: false
+	Isolation level: READ_COMMITTED
+	JDBC fetch size: none
+	Pool: DriverManagerConnectionProvider
+	Minimum pool size: 1
+Hibernate: drop table if exists InboxEntry cascade 
+Hibernate: drop table if exists Message cascade 
+Hibernate: drop table if exists Message_destination cascade 
+Hibernate: drop table if exists User cascade 
+Hibernate: create table InboxEntry (id varchar(255), mid varchar(255) not null, recipient varchar(255) not null, primary key (mid, recipient))
+Hibernate: create table Message (creationTime bigint not null, contents varchar(16384), id varchar(255) not null, sender varchar(255), subject varchar(255), primary key (id))
+Hibernate: create table Message_destination (Message_id varchar(255) not null, destination varchar(255))
+Hibernate: create table User (displayName varchar(255), domain varchar(255), name varchar(255) not null, pwd varchar(255), primary key (name))
+Hibernate: alter table InboxEntry add constraint FK_INBOX_MESSAGE FOREIGN KEY (id) REFERENCES Message(id) ON DELETE RESTRICT
+Hibernate: alter table Message_destination add constraint FK490i61489hp4breu8d0xkaokn foreign key (Message_id) references Message
+Hibernate: insert into Message (contents,creationTime,sender,subject,id) values (?,?,?,?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+	Maximum pool size: 64
+-----------------------------------------------------------------------------------
+users.ourorg1
+-----------------------------------------------------------------------------------
+MY DOMAIN:ourorg1
+INFO: Starting discovery on multicast group: /226.226.226.226, port: 2266
+INFO: Starting Discovery announcements on: /226.226.226.226:2266 for: Users@ourorg1 -> https://users.ourorg1:3456/rest
+INFO: Users Server ready @ https://users.ourorg1:3456/rest
+AdminSecretFilter: path='users'
+AdminSecretFilter: not admin path, allowing
+INFO: postUser: user=User{name='tricia.mcmillan12', pwd='6l8z6j795', displayName='Tricia McMillan', domain='ourorg1'}
+INFO: HHH000001: Hibernate ORM core version 7.2.4.FinalWARN: HHH10001002: Using built-in connection pool (not intended for production use)INFO: HHH10001005: Database info:
+	Database JDBC URL [jdbc:hsqldb:file:/tmp/foo]
+	Database driver: HSQL Database Engine Driver
+	Database dialect: HSQLDialect
+	Database version: 2.7.4
+	Default catalog/schema: PUBLIC/PUBLIC
+	Autocommit mode: false
+	Isolation level: READ_COMMITTED
+	JDBC fetch size: none
+	Pool: DriverManagerConnectionProvider
+	Minimum pool size: 1
+Hibernate: drop table if exists InboxEntry cascade 
+Hibernate: drop table if exists Message cascade 
+Hibernate: drop table if exists Message_destination cascade 
+Hibernate: drop table if exists User cascade 
+Hibernate: create table InboxEntry (id varchar(255), mid varchar(255) not null, recipient varchar(255) not null, primary key (mid, recipient))
+Hibernate: create table Message (creationTime bigint not null, contents varchar(16384), id varchar(255) not null, sender varchar(255), subject varchar(255), primary key (id))
+Hibernate: create table Message_destination (Message_id varchar(255) not null, destination varchar(255))
+Hibernate: create table User (displayName varchar(255), domain varchar(255), name varchar(255) not null, pwd varchar(255), primary key (name))
+Hibernate: alter table InboxEntry add constraint FK_INBOX_MESSAGE FOREIGN KEY (id) REFERENCES Message(id) ON DELETE RESTRICT
+Hibernate: alter table Message_destination add constraint FK490i61489hp4breu8d0xkaokn foreign key (Message_id) references Message
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+Hibernate: insert into User (displayName,domain,pwd,name) values (?,?,?,?)
+	Maximum pool size: 64AdminSecretFilter: path='users/tricia.mcmillan12'
+AdminSecretFilter: not admin path, allowing
+INFO: getUser : name = tricia.mcmillan12, pwd = 6l8z6j795
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+AdminSecretFilter: path='users/tricia.mcmillan12'
+AdminSecretFilter: not admin path, allowing
+INFO: getUser : name = tricia.mcmillan12, pwd = 6l8z6j795
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+
+-----------------------------------------------------------------------------------
+messages0.ourorg1
+-----------------------------------------------------------------------------------
+created refresh token request with body params [client_id=1000.90GQH3FX3BMM8CUMDK3J83CDFFKP6K&client_secret=268b83287189188fc4638a7a900d41c642176f6a14&scope=ZohoMail.messages.ALL%2CZohoMail.accounts.READ&refresh_token=1000.4046598428f6fa1a3a0a35eb10dca53d.34b4e81d9b86c7b5c16a62781804bf04&grant_type=refresh_token], query string params []
+send request for access token synchronously to https://accounts.zoho.eu/oauth/v2/token
+response status code: 200
+response body: {"access_token":"1000.0ac2a9ea4953f75f00d8e8df93de49f1.c8ae13f3932ce1964a9f8f63542469dc","scope":"ZohoMail.messages.ALL ZohoMail.accounts.READ","api_domain":"https://www.zohoapis.eu","token_type":"Bearer","expires_in":3600}
+MY DOMAIN:ourorg1
+INFO: Startup arg = true -> wiping Zoho mailbox for clean state.INFO: Zoho access token refreshed...INFO: Wiped 0 emails from Zoho mailbox.INFO: Starting discovery on multicast group: /226.226.226.226, port: 2266
+INFO: Starting Discovery announcements on: /226.226.226.226:2266 for: Messages@ourorg1 -> https://messages0.ourorg1:4567/rest
+INFO: Messages Server ready @ https://messages0.ourorg1:4567/rest
+AdminSecretFilter: path='messages/admin'
+AdminSecretFilter: ADMIN path. expected secret='secret', provided='secret'
+AdminSecretFilter: secret matches, allowing
+INFO: remotePostMessage : msg=MSG [id=ourorg0+0001, sender=Douglas Reynholm <douglas.reynholm9@ourorg0>, destination=[tricia.mcmillan12@ourorg1, nori10@ourorg0]]AdminSecretFilter: path='messages/mbox/tricia.mcmillan12'
+AdminSecretFilter: not admin path, allowing
+INFO: getAllInboxMessages : name=tricia.mcmillan12INFO: verifyLocalUser : calling Users service for name=tricia.mcmillan12 in domain=ourorg1INFO: verifyLocalUser : result=(OK, User{name='tricia.mcmillan12', pwd='6l8z6j795', displayName='Tricia McMillan', domain='ourorg1'})AdminSecretFilter: path='messages/mbox/tricia.mcmillan12/ourorg0+0001'
+AdminSecretFilter: not admin path, allowing
+INFO: getInboxMessage : name=tricia.mcmillan12, mid=ourorg0+0001INFO: verifyLocalUser : calling Users service for name=tricia.mcmillan12 in domain=ourorg1INFO: verifyLocalUser : result=(OK, User{name='tricia.mcmillan12', pwd='6l8z6j795', displayName='Tricia McMillan', domain='ourorg1'})
+=================================================================================
+
+
+Continue (Y/N) ?
+N
+Exiting...

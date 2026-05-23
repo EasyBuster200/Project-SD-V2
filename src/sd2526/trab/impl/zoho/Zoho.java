@@ -22,9 +22,9 @@ import sd2526.trab.impl.zoho.msgs.ZohoSendEmailRequest;
 public class Zoho {
 	static final String MAIL_API_BASE = "https://mail.zoho.eu/api";
 
-	static final String CLIENT_ID       = "1000.OF3ENQSLN1LX1VH9YRCMRWRODU9LWN";
-	static final String CLIENT_SECRET   = "6a775bc7518e5b52a2318df0895b3ff44f255e70d6";
-	static final String REFRESH_TOKEN   = "1000.08f9088e27eff3ce246e4c6b046bcc7c.ffb2831c13f4098702cb1ce111b0ccb0";
+	static final String CLIENT_ID       = "1000.90GQH3FX3BMM8CUMDK3J83CDFFKP6K";
+	static final String CLIENT_SECRET   = "268b83287189188fc4638a7a900d41c642176f6a14";
+	static final String REFRESH_TOKEN   = "1000.4046598428f6fa1a3a0a35eb10dca53d.34b4e81d9b86c7b5c16a62781804bf04";
 
 	static final String ACCOUNT_ID      = "8668419000000002002";
 	static final String INBOX_FOLDER_ID = "8668419000000002008";
