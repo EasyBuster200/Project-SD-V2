@@ -113,106 +113,32 @@ Skipping GRPC tests. GRPC mainclass not defined in messages.props. PLEASE CHECK 
 106b )	  Skipped...
 ---------------------------------------------------------------
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-107a )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-108a )	 Testing Multi-Domain Message Delivery : [[1,1],[1,0]] REST servers ; [] GRPC servers; [[0,0],[0,1]] PROXY servers
+107a )	 Testing Messages operations through Gateway : [[1,1,1]] REST servers ; [] GRPC servers; [] PROXY servers
 ---------------------------------------------------------------
 Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
 INFO: Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
 Starting REST services: Messages : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestMessagesServer> ; TLS : true
 INFO: Starting REST services: Messages : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestMessagesServer> ; TLS : true
-Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-INFO: Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-Starting REST services: Messages PROXY : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestZohoMessagesServer> ; TLS : true
-INFO: Starting REST services: Messages PROXY : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestZohoMessagesServer> ; TLS : true
-sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                1/5                                                                                2/5                                                                                3/5                                                                                4/5                                                                                5/5                                                                                1/1                                                                                ---------- Sending 1 cross-domain messages across 2 domains
-sleeping: 9 s                                                                                sleeping: 8 s                                                                                sleeping: 7 s                                                                                sleeping: 6 s                                                                                sleeping: 5 s                                                                                sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                sleeping: 9 s                                                                                sleeping: 8 s                                                                                sleeping: 7 s                                                                                sleeping: 6 s                                                                                sleeping: 5 s                                                                                sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-108a )	 Successfully tested cross-domain message delivery to proxy across 2 domains
----------------------------------------------------------------
-OK                                                                                                                   
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-108b )	 Testing Multi-Domain Message Delivery : [[1,1],[1,0]] REST servers ; [] GRPC servers; [[0,0],[0,1]] PROXY servers
----------------------------------------------------------------
-Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-INFO: Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-Starting REST services: Messages : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestMessagesServer> ; TLS : true
-INFO: Starting REST services: Messages : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestMessagesServer> ; TLS : true
-Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-INFO: Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
-Starting REST services: Messages PROXY : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestZohoMessagesServer> ; TLS : true
-INFO: Starting REST services: Messages PROXY : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestZohoMessagesServer> ; TLS : true
-sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                1/5                                                                                2/5                                                                                3/5                                                                                4/5                                                                                5/5                                                                                1/1                                                                                ---------- Sending 1 cross-domain messages across 2 domains
-sleeping: 9 s                                                                                sleeping: 8 s                                                                                sleeping: 7 s                                                                                sleeping: 6 s                                                                                sleeping: 5 s                                                                                sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                ---------- Stopping proxy server in domain ourorg1 and waiting 10s before restart
-Stopping container : messages0.ourorg1
-sleeping: 9 s                                                                                sleeping: 8 s                                                                                sleeping: 7 s                                                                                sleeping: 6 s                                                                                sleeping: 5 s                                                                                sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                ---------- Restarting proxy 
-Restarting proxy server : messages0.ourorg1 (continue with saved state)
-sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                sleeping: 9 s                                                                                sleeping: 8 s                                                                                sleeping: 7 s                                                                                sleeping: 6 s                                                                                sleeping: 5 s                                                                                sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                sleeping: 9 s                                                                                sleeping: 8 s                                                                                sleeping: 7 s                                                                                sleeping: 6 s                                                                                sleeping: 5 s                                                                                sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-108b )	 Successfully tested cross-domain message delivery to proxy across 2 domains
----------------------------------------------------------------
-OK                                                                                                                   
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-109a )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-109b )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-109c )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-109d )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-110a )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-110b )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-110c )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-110d )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-111a )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-112a )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-112b )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-113a )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-113b )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-113c )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-114a )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-114b )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-114c )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-115a )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-115b )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-116a )	  Skipped...
----------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-116b )	  Skipped...
----------------------------------------------------------------
-Skipped GRPC tests. GRPC mainclass not defined in trab.props. PLEASE CHECK if you have implemented GRPC.
-Test complete...
+Starting REST services: Gateway : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestGatewayServer> ; TLS : true
+INFO: Starting REST services: Gateway : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestGatewayServer> ; TLS : true
+sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                FAILED: PostUser (via Gateway) = User [name=tom1, pwd=3j2t1b0biel962f, domain=ourorg0, displayName=Tom]
+Expected : 200; received : 300
+
+
+=================================================================================
+-------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+users.ourorg0
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+messages0.ourorg0
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+messages1.ourorg0
+-----------------------------------------------------------------------------------
+=================================================================================
+
+
+Continue (Y/N) ?
+N
+Exiting...
