@@ -142,7 +142,7 @@ public class ReplicatedMessages extends JavaBaseService implements Messages, Adm
     Log.info(() -> "getAllInboxMessages : name=%s".formatted(name));
     if (badParams(name, pwd))
       return error(BAD_REQUEST);
-    var sql = "SELECT m.mid FROM InboxEntry m WHERE m.recipient = '%s'".formatted(name);
+    var sql = "SELECT m.mid FROM InboxEntry m WHERE m.recipient = '%s'".formatted(esc(name));
     return getUser(name, pwd).then(() -> DB.select(sql, String.class));
   }
 
@@ -157,7 +157,7 @@ public class ReplicatedMessages extends JavaBaseService implements Messages, Adm
         ON e.mid = m.id
         AND e.recipient = '%s'
         WHERE (upper(m.subject) LIKE '%%%s%%' OR upper(m.contents) LIKE '%%%s%%')
-        """.formatted((name), query.toUpperCase(), query.toUpperCase());
+        """.formatted(esc(name), esc(query.toUpperCase()), esc(query.toUpperCase()));
     return getUser(name, pwd).then(() -> DB.select(sql, String.class));
   }
 
@@ -363,7 +363,7 @@ public class ReplicatedMessages extends JavaBaseService implements Messages, Adm
   }
 
   private String applyRemoteDeleteInbox(Operation.RemoteDeleteInboxPayload p) {
-    var sql = "SELECT * FROM InboxEntry e WHERE e.recipient = '%s'".formatted(p.name());
+    var sql = "SELECT * FROM InboxEntry e WHERE e.recipient = '%s'".formatted(esc(p.name()));
     DB.transaction(hibernate -> hibernate.select(sql, InboxEntry.class)
         .thenWith(entries -> hibernate.deleteMany(entries)));
     return ResultEnvelope.encode(Result.<Void>ok());
