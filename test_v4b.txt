@@ -1,0 +1,772 @@
+Using default tag: latest
+latest: Pulling from nunopreguica/sd2526-tester-tp2
+Digest: sha256:f63b30cfca835e0e158621474876143863c42111f32a4dd5f84e4d21e16121e4
+Status: Image is up to date for nunopreguica/sd2526-tester-tp2:latest
+docker.io/nunopreguica/sd2526-tester-tp2:latest
+SD2526 +++ TP2 +++ Testing image: sd2526-tp2-65154
+Version 0.99.2 - 14/05/2026
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+1a )	 Testing Docker environment [executing: docker info]
+---------------------------------------------------------------
+Docker ID: 3a8af8e3-d206-48c9-ae80-0b338551efc5
+OK                                                                                                                   
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+1b )	Testing: Docker engine CPU cores...
+---------------------------------------------------------------
+OK                                                                                                                   
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+1c )	Checking messages.props [executing: docker run sd2526-tp2-65154 /bin/cat messages.props and nunopreguica/sd2526tpbase]
+---------------------------------------------------------------
+; Read properties from: ./messages.props
+;	MESSAGES_GRPC_PORT=
+;	USERS_REST_EXTRA_ARGS=-secret secret
+;	USERS_GRPC_PORT=
+;	DISCOVERY_MULTICAST_PORT=2266
+;	MESSAGES_GRPC_EXTRA_ARGS=
+;	USERS_KEYSTORES=users.ourorg0,users-0.ks,changeit users.ourorg1,users-1.ks,changeit users.ourorg2,users-2.ks,changeit
+;	MESSAGES_REST_PROXY_SERVER_MAINCLASS=sd2526.trab.impl.rest.servers.RestZohoMessagesServer
+;	CLIENT_TRUSTSTORE=client-truststore.ks
+;	MESSAGES_REP_EXTRA_ARGS_FIRST=-secret secret
+;	MESSAGES_REST_PORT=4567
+;	SERVERS_KEYSTORES=messages0.ourorg0,messages0-0.ks,changeit messages1.ourorg0,messages1-0.ks,changeit messages2.ourorg0,messages2-0.ks,changeit messages0.ourorg1,messages0-1.ks,changeit messages1.ourorg1,messages1-1.ks,changeit messages2.ourorg1,messages2-1.ks,changeit messages.ourorg2,messages-2.ks,changeit
+;	MESSAGES_REST_PROXY_EXTRA_ARGS=-secret secret
+;	CLIENT_TRUSTSTORE_PWD=changeit
+;	USERS_REST_SERVER_MAINCLASS=sd2526.trab.impl.rest.servers.RestUsersServer
+;	GATEWAY_REST_SERVER_MAINCLASS=sd2526.trab.impl.rest.servers.RestGatewayServer
+;	DISCOVERY_MULTICAST_IP=226.226.226.226
+;	USERS_GRPC_SERVER_MAINCLASS=
+;	GATEWAY_REST_EXTRA_ARGS=-secret secret
+;	MESSAGES_REST_SERVER_MAINCLASS=sd2526.trab.impl.rest.servers.RestMessagesServer
+;	USERS_REST_PORT=3456
+;	MESSAGES_REST_PROXY_PORT=4567
+;	MESSAGES_REST_EXTRA_ARGS=-secret secret
+;	MESSAGES_REP_EXTRA_ARGS_OTHER=-secret secret
+;	GATEWAY_REST_PORT=6666
+;	MESSAGES_GRPC_SERVER_MAINCLASS=
+;	USERS_GRPC_EXTRA_ARGS=
+;	MESSAGES_REP_SERVER_MAINCLASS=sd2526.trab.impl.rest.servers.RestReplicatedMessagesServer
+;	MESSAGES_REP_PORT=4567
+OK                                                                                                                   
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+1d )	Checking TLS keys in client truststore
+---------------------------------------------------------------
+OK                                                                                                                   
+Skipping GRPC tests. GRPC mainclass not defined in messages.props. PLEASE CHECK if you have implemented GRPC.
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+101a )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+101b )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+101c )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+102a )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+102b )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+102c )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+103a )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+103b )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+103c )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+103d )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+104a )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+104b )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+104c )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+105a )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+105b )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+105c )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+105d )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+105e )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+106a )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+106b )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+107a )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+108a )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+108b )	  Skipped...
+---------------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+109a )	 Testing Messages Post/Get : [[1,3]] REST servers ; [] GRPC servers; [] PROXY servers
+---------------------------------------------------------------
+sleeping: 9 s                                                                                sleeping: 8 s                                                                                sleeping: 7 s                                                                                sleeping: 6 s                                                                                sleeping: 5 s                                                                                sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
+INFO: Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
+Starting REST services: Messages (replicated) : <3> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestReplicatedMessagesServer> ; TLS : true
+INFO: Starting REST services: Messages (replicated) : <3> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestReplicatedMessagesServer> ; TLS : true
+sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                1/10                                                                                2/10                                                                                3/10                                                                                4/10                                                                                5/10                                                                                6/10                                                                                7/10                                                                                8/10                                                                                9/10                                                                                10/10                                                                                FAILED: GetMessage : user = william..bill.huggins.10 ; mid = null ; pwd = ti35292yzi303h
+Expected : 200; received : 300
+
+
+=================================================================================
+-------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+kafka
+-----------------------------------------------------------------------------------
+2026-05-24 11:07:51,239 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2026-05-24 11:07:51,239 INFO Included extra file "/etc/supervisor/conf.d/kafka.conf" during parsing
+2026-05-24 11:07:51,239 INFO Included extra file "/etc/supervisor/conf.d/zookeeper.conf" during parsing
+2026-05-24 11:07:51,245 INFO RPC interface 'supervisor' initialized
+2026-05-24 11:07:51,245 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2026-05-24 11:07:51,245 INFO supervisord started with pid 9
+2026-05-24 11:07:52,248 INFO spawned: 'kafka' with pid 10
+2026-05-24 11:07:52,250 INFO spawned: 'zookeeper' with pid 11
+2026-05-24 11:07:53,252 INFO success: kafka entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-05-24 11:07:53,252 INFO success: zookeeper entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+
+-----------------------------------------------------------------------------------
+users.ourorg0
+-----------------------------------------------------------------------------------
+MY DOMAIN:ourorg0
+INFO: Starting discovery on multicast group: /226.226.226.226, port: 2266
+INFO: Starting Discovery announcements on: /226.226.226.226:2266 for: Users@ourorg0 -> https://users.ourorg0:3456/rest
+INFO: Users Server ready @ https://users.ourorg0:3456/rest
+INFO: postUser: user=User{name='prostetnic.vogon.jeltz1', pwd='3j2t1b0biel962f', displayName='Prostetnic Vogon Jeltz', domain='ourorg0'}
+INFO: HHH000001: Hibernate ORM core version 7.2.4.FinalWARN: HHH10001002: Using built-in connection pool (not intended for production use)INFO: HHH10001005: Database info:
+	Database JDBC URL [jdbc:hsqldb:file:/tmp/foo]
+	Database driver: HSQL Database Engine Driver
+	Database dialect: HSQLDialect
+	Database version: 2.7.4
+	Default catalog/schema: PUBLIC/PUBLIC
+	Autocommit mode: false
+	Isolation level: READ_COMMITTED
+	JDBC fetch size: none
+	Pool: DriverManagerConnectionProvider
+	Minimum pool size: 1
+Hibernate: drop table if exists InboxEntry cascade 
+Hibernate: drop table if exists Message cascade 
+Hibernate: drop table if exists Message_destination cascade 
+Hibernate: drop table if exists User cascade 
+Hibernate: create table InboxEntry (id varchar(255), mid varchar(255) not null, recipient varchar(255) not null, primary key (mid, recipient))
+Hibernate: create table Message (creationTime bigint not null, contents varchar(16384), id varchar(255) not null, sender varchar(255), subject varchar(255), primary key (id))
+Hibernate: create table Message_destination (Message_id varchar(255) not null, destination varchar(255))
+Hibernate: create table User (displayName varchar(255), domain varchar(255), name varchar(255) not null, pwd varchar(255), primary key (name))
+Hibernate: alter table InboxEntry add constraint FK_INBOX_MESSAGE FOREIGN KEY (id) REFERENCES Message(id) ON DELETE RESTRICT
+Hibernate: alter table Message_destination add constraint FK490i61489hp4breu8d0xkaokn foreign key (Message_id) references Message
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+Hibernate: insert into User (displayName,domain,pwd,name) values (?,?,?,?)
+	Maximum pool size: 64INFO: postUser: user=User{name='radagast2', pwd='gutul25175p50au5', displayName='Radagast', domain='ourorg0'}
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+Hibernate: insert into User (displayName,domain,pwd,name) values (?,?,?,?)
+INFO: postUser: user=User{name='roac3', pwd='3g8q5l50', displayName='Roac', domain='ourorg0'}
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+Hibernate: insert into User (displayName,domain,pwd,name) values (?,?,?,?)
+INFO: postUser: user=User{name='anakin.skywalker4', pwd='5dh2u60iqac41y4', displayName='Anakin Skywalker', domain='ourorg0'}
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+Hibernate: insert into User (displayName,domain,pwd,name) values (?,?,?,?)
+INFO: postUser: user=User{name='han.solo5', pwd='y820c3564u', displayName='Han Solo', domain='ourorg0'}
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+Hibernate: insert into User (displayName,domain,pwd,name) values (?,?,?,?)
+INFO: postUser: user=User{name='derek.pippen6', pwd='6l8z6j795', displayName='Derek Pippen', domain='ourorg0'}
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+Hibernate: insert into User (displayName,domain,pwd,name) values (?,?,?,?)
+INFO: postUser: user=User{name='slartibartfast7', pwd='kyt5904mlib', displayName='Slartibartfast', domain='ourorg0'}
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+Hibernate: insert into User (displayName,domain,pwd,name) values (?,?,?,?)
+INFO: postUser: user=User{name='padme.amidala8', pwd='dkba14fjr3i6x66', displayName='Padme Amidala', domain='ourorg0'}
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+Hibernate: insert into User (displayName,domain,pwd,name) values (?,?,?,?)
+INFO: postUser: user=User{name='bolg9', pwd='7bb02s5o', displayName='Bolg', domain='ourorg0'}
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+Hibernate: insert into User (displayName,domain,pwd,name) values (?,?,?,?)
+INFO: postUser: user=User{name='william..bill.huggins.10', pwd='ti35292yzi303h', displayName='William (Bill Huggins)', domain='ourorg0'}
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+Hibernate: insert into User (displayName,domain,pwd,name) values (?,?,?,?)
+INFO: getUser : name = roac3, pwd = 3g8q5l50
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+INFO: checkUsers : addresses = [slartibartfast7@ourorg0, padme.amidala8@ourorg0, william..bill.huggins.10@ourorg0, han.solo5@ourorg0]
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+
+-----------------------------------------------------------------------------------
+messages0.ourorg0
+-----------------------------------------------------------------------------------
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Topic messages-ourorg0 was created successfully
+INFO: HHH000001: Hibernate ORM core version 7.2.4.FinalWARN: HHH10001002: Using built-in connection pool (not intended for production use)INFO: HHH10001005: Database info:
+	Database JDBC URL [jdbc:hsqldb:file:/tmp/foo]
+	Database driver: HSQL Database Engine Driver
+	Database dialect: HSQLDialect
+	Database version: 2.7.4
+	Default catalog/schema: PUBLIC/PUBLIC
+	Autocommit mode: false
+	Isolation level: READ_COMMITTED
+	JDBC fetch size: none
+	Pool: DriverManagerConnectionProvider
+	Minimum pool size: 1
+Hibernate: drop table if exists InboxEntry cascade 
+Hibernate: drop table if exists Message cascade 
+Hibernate: drop table if exists Message_destination cascade 
+Hibernate: drop table if exists User cascade 
+Hibernate: create table InboxEntry (id varchar(255), mid varchar(255) not null, recipient varchar(255) not null, primary key (mid, recipient))
+Hibernate: create table Message (creationTime bigint not null, contents varchar(16384), id varchar(255) not null, sender varchar(255), subject varchar(255), primary key (id))
+Hibernate: create table Message_destination (Message_id varchar(255) not null, destination varchar(255))
+Hibernate: create table User (displayName varchar(255), domain varchar(255), name varchar(255) not null, pwd varchar(255), primary key (name))
+Hibernate: alter table InboxEntry add constraint FK_INBOX_MESSAGE FOREIGN KEY (id) REFERENCES Message(id) ON DELETE RESTRICT
+Hibernate: alter table Message_destination add constraint FK490i61489hp4breu8d0xkaokn foreign key (Message_id) references Message
+Hibernate: SELECT count(*) FROM Message
+MY DOMAIN:ourorg0
+	Maximum pool size: 64INFO: ReplicatedMessages started for domain=ourorg0 topic=messages-ourorg0WARNING: A provider sd2526.trab.impl.rest.servers.RestReplicatedMessagesResource registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider sd2526.trab.impl.rest.servers.RestReplicatedMessagesResource will be ignored. INFO: Starting discovery on multicast group: /226.226.226.226, port: 2266
+INFO: Starting Discovery announcements on: /226.226.226.226:2266 for: Messages@ourorg0 -> https://messages0.ourorg0:4567/rest
+INFO: Messages Server ready @ https://messages0.ourorg0:4567/rest
+Published to topic messages-ourorg0 with offset 0
+Hibernate: insert into Message (contents,creationTime,sender,subject,id) values (?,?,?,?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+INFO: postMessage : pwd=3g8q5l50, msg=MSG [id=null, sender=roac3@ourorg0, destination=[slartibartfast7@ourorg0, padme.amidala8@ourorg0, william..bill.huggins.10@ourorg0, han.solo5@ourorg0]]
+-----------------------------------------------------------------------------------
+messages1.ourorg0
+-----------------------------------------------------------------------------------
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Topic: messages-ourorg0 already exists...
+java.util.concurrent.ExecutionException: org.apache.kafka.common.errors.TopicExistsException: Topic 'messages-ourorg0' already exists.
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:396)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2073)
+	at org.apache.kafka.common.internals.KafkaFutureImpl.get(KafkaFutureImpl.java:155)
+	at sd2526.trab.impl.kafka.KafkaUtils.createTopic(KafkaUtils.java:34)
+	at sd2526.trab.impl.kafka.KafkaUtils.createTopic(KafkaUtils.java:22)
+	at sd2526.trab.impl.replicated.ReplicatedMessages.<init>(ReplicatedMessages.java:75)
+	at sd2526.trab.impl.replicated.ReplicatedMessages.getInstance(ReplicatedMessages.java:92)
+	at sd2526.trab.impl.rest.servers.RestReplicatedMessagesServer.main(RestReplicatedMessagesServer.java:31)
+Caused by: org.apache.kafka.common.errors.TopicExistsException: Topic 'messages-ourorg0' already exists.
+INFO: HHH000001: Hibernate ORM core version 7.2.4.FinalWARN: HHH10001002: Using built-in connection pool (not intended for production use)INFO: HHH10001005: Database info:
+	Database JDBC URL [jdbc:hsqldb:file:/tmp/foo]
+	Database driver: HSQL Database Engine Driver
+	Database dialect: HSQLDialect
+	Database version: 2.7.4
+	Default catalog/schema: PUBLIC/PUBLIC
+	Autocommit mode: false
+	Isolation level: READ_COMMITTED
+	JDBC fetch size: none
+	Pool: DriverManagerConnectionProvider
+	Minimum pool size: 1
+Hibernate: drop table if exists InboxEntry cascade 
+Hibernate: drop table if exists Message cascade 
+Hibernate: drop table if exists Message_destination cascade 
+Hibernate: drop table if exists User cascade 
+Hibernate: create table InboxEntry (id varchar(255), mid varchar(255) not null, recipient varchar(255) not null, primary key (mid, recipient))
+Hibernate: create table Message (creationTime bigint not null, contents varchar(16384), id varchar(255) not null, sender varchar(255), subject varchar(255), primary key (id))
+Hibernate: create table Message_destination (Message_id varchar(255) not null, destination varchar(255))
+Hibernate: create table User (displayName varchar(255), domain varchar(255), name varchar(255) not null, pwd varchar(255), primary key (name))
+Hibernate: alter table InboxEntry add constraint FK_INBOX_MESSAGE FOREIGN KEY (id) REFERENCES Message(id) ON DELETE RESTRICT
+Hibernate: alter table Message_destination add constraint FK490i61489hp4breu8d0xkaokn foreign key (Message_id) references Message
+Hibernate: SELECT count(*) FROM Message
+MY DOMAIN:ourorg0
+	Maximum pool size: 64INFO: ReplicatedMessages started for domain=ourorg0 topic=messages-ourorg0WARNING: A provider sd2526.trab.impl.rest.servers.RestReplicatedMessagesResource registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider sd2526.trab.impl.rest.servers.RestReplicatedMessagesResource will be ignored. INFO: Starting discovery on multicast group: /226.226.226.226, port: 2266
+INFO: Starting Discovery announcements on: /226.226.226.226:2266 for: Messages@ourorg0 -> https://messages1.ourorg0:4567/rest
+INFO: Messages Server ready @ https://messages1.ourorg0:4567/rest
+Hibernate: insert into Message (contents,creationTime,sender,subject,id) values (?,?,?,?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+
+-----------------------------------------------------------------------------------
+messages2.ourorg0
+-----------------------------------------------------------------------------------
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Topic: messages-ourorg0 already exists...
+java.util.concurrent.ExecutionException: org.apache.kafka.common.errors.TopicExistsException: Topic 'messages-ourorg0' already exists.
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:396)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2073)
+	at org.apache.kafka.common.internals.KafkaFutureImpl.get(KafkaFutureImpl.java:155)
+	at sd2526.trab.impl.kafka.KafkaUtils.createTopic(KafkaUtils.java:34)
+	at sd2526.trab.impl.kafka.KafkaUtils.createTopic(KafkaUtils.java:22)
+	at sd2526.trab.impl.replicated.ReplicatedMessages.<init>(ReplicatedMessages.java:75)
+	at sd2526.trab.impl.replicated.ReplicatedMessages.getInstance(ReplicatedMessages.java:92)
+	at sd2526.trab.impl.rest.servers.RestReplicatedMessagesServer.main(RestReplicatedMessagesServer.java:31)
+Caused by: org.apache.kafka.common.errors.TopicExistsException: Topic 'messages-ourorg0' already exists.
+INFO: HHH000001: Hibernate ORM core version 7.2.4.FinalWARN: HHH10001002: Using built-in connection pool (not intended for production use)INFO: HHH10001005: Database info:
+	Database JDBC URL [jdbc:hsqldb:file:/tmp/foo]
+	Database driver: HSQL Database Engine Driver
+	Database dialect: HSQLDialect
+	Database version: 2.7.4
+	Default catalog/schema: PUBLIC/PUBLIC
+	Autocommit mode: false
+	Isolation level: READ_COMMITTED
+	JDBC fetch size: none
+	Pool: DriverManagerConnectionProvider
+	Minimum pool size: 1
+Hibernate: drop table if exists InboxEntry cascade 
+Hibernate: drop table if exists Message cascade 
+Hibernate: drop table if exists Message_destination cascade 
+Hibernate: drop table if exists User cascade 
+Hibernate: create table InboxEntry (id varchar(255), mid varchar(255) not null, recipient varchar(255) not null, primary key (mid, recipient))
+Hibernate: create table Message (creationTime bigint not null, contents varchar(16384), id varchar(255) not null, sender varchar(255), subject varchar(255), primary key (id))
+Hibernate: create table Message_destination (Message_id varchar(255) not null, destination varchar(255))
+Hibernate: create table User (displayName varchar(255), domain varchar(255), name varchar(255) not null, pwd varchar(255), primary key (name))
+Hibernate: alter table InboxEntry add constraint FK_INBOX_MESSAGE FOREIGN KEY (id) REFERENCES Message(id) ON DELETE RESTRICT
+Hibernate: alter table Message_destination add constraint FK490i61489hp4breu8d0xkaokn foreign key (Message_id) references Message
+Hibernate: SELECT count(*) FROM Message
+MY DOMAIN:ourorg0
+	Maximum pool size: 64INFO: ReplicatedMessages started for domain=ourorg0 topic=messages-ourorg0WARNING: A provider sd2526.trab.impl.rest.servers.RestReplicatedMessagesResource registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider sd2526.trab.impl.rest.servers.RestReplicatedMessagesResource will be ignored. INFO: Starting discovery on multicast group: /226.226.226.226, port: 2266
+INFO: Starting Discovery announcements on: /226.226.226.226:2266 for: Messages@ourorg0 -> https://messages2.ourorg0:4567/rest
+INFO: Messages Server ready @ https://messages2.ourorg0:4567/rest
+Hibernate: insert into Message (contents,creationTime,sender,subject,id) values (?,?,?,?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+
+=================================================================================
+
+
+Continue (Y/N) ?
+Y
+Continuing to next test...
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+109b )	 Testing Single-Domain Mix (post + remove + search + delete) : [[1,3]] REST servers ; [] GRPC servers; [] PROXY servers
+---------------------------------------------------------------
+sleeping: 9 s                                                                                sleeping: 8 s                                                                                sleeping: 7 s                                                                                
+sleeping: 6 s                                                                                sleeping: 5 s                                                                                Y
+sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
+INFO: Starting REST services: Users : <1> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestUsersServer> ; TLS : true
+Starting REST services: Messages (replicated) : <3> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestReplicatedMessagesServer> ; TLS : true
+INFO: Starting REST services: Messages (replicated) : <3> replicas : mainClass = <sd2526.trab.impl.rest.servers.RestReplicatedMessagesServer> ; TLS : true
+sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                sleeping: 4 s                                                                                sleeping: 3 s                                                                                sleeping: 2 s                                                                                sleeping: 1 s                                                                                sleeping: 0 s                                                                                                                                                                1/5                                                                                2/5                                                                                3/5                                                                                4/5                                                                                5/5                                                                                ---------- Sending 10 messages in domain ourorg0
+FAILED: Cannot invoke "java.lang.Comparable.compareTo(Object)" because "k1" is null
+
+
+=================================================================================
+-------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+kafka
+-----------------------------------------------------------------------------------
+2026-05-24 11:08:46,306 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2026-05-24 11:08:46,306 INFO Included extra file "/etc/supervisor/conf.d/kafka.conf" during parsing
+2026-05-24 11:08:46,306 INFO Included extra file "/etc/supervisor/conf.d/zookeeper.conf" during parsing
+2026-05-24 11:08:46,309 INFO RPC interface 'supervisor' initialized
+2026-05-24 11:08:46,309 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2026-05-24 11:08:46,310 INFO supervisord started with pid 9
+2026-05-24 11:08:47,312 INFO spawned: 'kafka' with pid 10
+2026-05-24 11:08:47,314 INFO spawned: 'zookeeper' with pid 11
+2026-05-24 11:08:48,403 INFO success: kafka entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2026-05-24 11:08:48,403 INFO success: zookeeper entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+
+-----------------------------------------------------------------------------------
+users.ourorg0
+-----------------------------------------------------------------------------------
+MY DOMAIN:ourorg0
+INFO: Starting discovery on multicast group: /226.226.226.226, port: 2266
+INFO: Starting Discovery announcements on: /226.226.226.226:2266 for: Users@ourorg0 -> https://users.ourorg0:3456/rest
+INFO: Users Server ready @ https://users.ourorg0:3456/rest
+INFO: postUser: user=User{name='savage.opress11', pwd='3j2t1b0biel962f', displayName='Savage Opress', domain='ourorg0'}
+INFO: HHH000001: Hibernate ORM core version 7.2.4.FinalWARN: HHH10001002: Using built-in connection pool (not intended for production use)INFO: HHH10001005: Database info:
+	Database JDBC URL [jdbc:hsqldb:file:/tmp/foo]
+	Database driver: HSQL Database Engine Driver
+	Database dialect: HSQLDialect
+	Database version: 2.7.4
+	Default catalog/schema: PUBLIC/PUBLIC
+	Autocommit mode: false
+	Isolation level: READ_COMMITTED
+	JDBC fetch size: none
+	Pool: DriverManagerConnectionProvider
+	Minimum pool size: 1
+Hibernate: drop table if exists InboxEntry cascade 
+Hibernate: drop table if exists Message cascade 
+Hibernate: drop table if exists Message_destination cascade 
+Hibernate: drop table if exists User cascade 
+Hibernate: create table InboxEntry (id varchar(255), mid varchar(255) not null, recipient varchar(255) not null, primary key (mid, recipient))
+Hibernate: create table Message (creationTime bigint not null, contents varchar(16384), id varchar(255) not null, sender varchar(255), subject varchar(255), primary key (id))
+Hibernate: create table Message_destination (Message_id varchar(255) not null, destination varchar(255))
+Hibernate: create table User (displayName varchar(255), domain varchar(255), name varchar(255) not null, pwd varchar(255), primary key (name))
+Hibernate: alter table InboxEntry add constraint FK_INBOX_MESSAGE FOREIGN KEY (id) REFERENCES Message(id) ON DELETE RESTRICT
+Hibernate: alter table Message_destination add constraint FK490i61489hp4breu8d0xkaokn foreign key (Message_id) references Message
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+Hibernate: insert into User (displayName,domain,pwd,name) values (?,?,?,?)
+	Maximum pool size: 64INFO: postUser: user=User{name='radagast12', pwd='gutul25175p50au5', displayName='Radagast', domain='ourorg0'}
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+Hibernate: insert into User (displayName,domain,pwd,name) values (?,?,?,?)
+INFO: postUser: user=User{name='grogu13', pwd='3g8q5l50', displayName='Grogu', domain='ourorg0'}
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+Hibernate: insert into User (displayName,domain,pwd,name) values (?,?,?,?)
+INFO: postUser: user=User{name='bill.crouse14', pwd='5dh2u60iqac41y4', displayName='Bill Crouse', domain='ourorg0'}
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+Hibernate: insert into User (displayName,domain,pwd,name) values (?,?,?,?)
+INFO: postUser: user=User{name='hotblack.desiato15', pwd='y820c3564u', displayName='Hotblack Desiato', domain='ourorg0'}
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+Hibernate: insert into User (displayName,domain,pwd,name) values (?,?,?,?)
+INFO: getUser : name = bill.crouse14, pwd = 5dh2u60iqac41y4
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+INFO: checkUsers : addresses = [hotblack.desiato15@ourorg0, savage.opress11@ourorg0, radagast12@ourorg0]
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+INFO: getUser : name = bill.crouse14, pwd = 5dh2u60iqac41y4
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+INFO: checkUsers : addresses = [hotblack.desiato15@ourorg0]
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+INFO: getUser : name = hotblack.desiato15, pwd = y820c3564u
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+INFO: checkUsers : addresses = [bill.crouse14@ourorg0, radagast12@ourorg0]
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+INFO: getUser : name = hotblack.desiato15, pwd = y820c3564u
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+INFO: checkUsers : addresses = [bill.crouse14@ourorg0, savage.opress11@ourorg0]
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+INFO: getUser : name = grogu13, pwd = 3g8q5l50
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+INFO: checkUsers : addresses = [hotblack.desiato15@ourorg0, radagast12@ourorg0, savage.opress11@ourorg0]
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+INFO: getUser : name = hotblack.desiato15, pwd = y820c3564u
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+INFO: checkUsers : addresses = [bill.crouse14@ourorg0]
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+INFO: getUser : name = hotblack.desiato15, pwd = y820c3564u
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+INFO: checkUsers : addresses = [grogu13@ourorg0]
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+INFO: getUser : name = savage.opress11, pwd = 3j2t1b0biel962f
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+INFO: checkUsers : addresses = [hotblack.desiato15@ourorg0]
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+INFO: getUser : name = bill.crouse14, pwd = 5dh2u60iqac41y4
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+INFO: checkUsers : addresses = [grogu13@ourorg0]
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+INFO: getUser : name = savage.opress11, pwd = 3j2t1b0biel962f
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+INFO: checkUsers : addresses = [bill.crouse14@ourorg0, hotblack.desiato15@ourorg0, grogu13@ourorg0]
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+INFO: getUser : name = savage.opress11, pwd = 3j2t1b0biel962f
+Hibernate: select u1_0.name,u1_0.displayName,u1_0.domain,u1_0.pwd from User u1_0 where u1_0.name=?
+
+-----------------------------------------------------------------------------------
+messages0.ourorg0
+-----------------------------------------------------------------------------------
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Topic messages-ourorg0 was created successfully
+INFO: HHH000001: Hibernate ORM core version 7.2.4.FinalWARN: HHH10001002: Using built-in connection pool (not intended for production use)INFO: HHH10001005: Database info:
+	Database JDBC URL [jdbc:hsqldb:file:/tmp/foo]
+	Database driver: HSQL Database Engine Driver
+	Database dialect: HSQLDialect
+	Database version: 2.7.4
+	Default catalog/schema: PUBLIC/PUBLIC
+	Autocommit mode: false
+	Isolation level: READ_COMMITTED
+	JDBC fetch size: none
+	Pool: DriverManagerConnectionProvider
+	Minimum pool size: 1
+Hibernate: drop table if exists InboxEntry cascade 
+Hibernate: drop table if exists Message cascade 
+Hibernate: drop table if exists Message_destination cascade 
+Hibernate: drop table if exists User cascade 
+Hibernate: create table InboxEntry (id varchar(255), mid varchar(255) not null, recipient varchar(255) not null, primary key (mid, recipient))
+Hibernate: create table Message (creationTime bigint not null, contents varchar(16384), id varchar(255) not null, sender varchar(255), subject varchar(255), primary key (id))
+Hibernate: create table Message_destination (Message_id varchar(255) not null, destination varchar(255))
+Hibernate: create table User (displayName varchar(255), domain varchar(255), name varchar(255) not null, pwd varchar(255), primary key (name))
+Hibernate: alter table InboxEntry add constraint FK_INBOX_MESSAGE FOREIGN KEY (id) REFERENCES Message(id) ON DELETE RESTRICT
+Hibernate: alter table Message_destination add constraint FK490i61489hp4breu8d0xkaokn foreign key (Message_id) references Message
+Hibernate: SELECT count(*) FROM Message
+MY DOMAIN:ourorg0
+	Maximum pool size: 64INFO: ReplicatedMessages started for domain=ourorg0 topic=messages-ourorg0WARNING: A provider sd2526.trab.impl.rest.servers.RestReplicatedMessagesResource registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider sd2526.trab.impl.rest.servers.RestReplicatedMessagesResource will be ignored. INFO: Starting discovery on multicast group: /226.226.226.226, port: 2266
+INFO: Starting Discovery announcements on: /226.226.226.226:2266 for: Messages@ourorg0 -> https://messages0.ourorg0:4567/rest
+INFO: Messages Server ready @ https://messages0.ourorg0:4567/rest
+Published to topic messages-ourorg0 with offset 0
+Hibernate: insert into Message (contents,creationTime,sender,subject,id) values (?,?,?,?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Published to topic messages-ourorg0 with offset 1
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message (contents,creationTime,sender,subject,id) values (?,?,?,?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Published to topic messages-ourorg0 with offset 2
+Hibernate: insert into Message (contents,creationTime,sender,subject,id) values (?,?,?,?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Published to topic messages-ourorg0 with offset 3
+Hibernate: insert into Message (contents,creationTime,sender,subject,id) values (?,?,?,?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Published to topic messages-ourorg0 with offset 4
+Hibernate: insert into Message (contents,creationTime,sender,subject,id) values (?,?,?,?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Published to topic messages-ourorg0 with offset 5
+Hibernate: insert into Message (contents,creationTime,sender,subject,id) values (?,?,?,?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Published to topic messages-ourorg0 with offset 6
+Hibernate: insert into Message (contents,creationTime,sender,subject,id) values (?,?,?,?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Published to topic messages-ourorg0 with offset 7
+Hibernate: insert into Message (contents,creationTime,sender,subject,id) values (?,?,?,?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Published to topic messages-ourorg0 with offset 8
+Hibernate: insert into Message (contents,creationTime,sender,subject,id) values (?,?,?,?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Published to topic messages-ourorg0 with offset 9
+Hibernate: insert into Message (contents,creationTime,sender,subject,id) values (?,?,?,?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: SELECT m.mid FROM InboxEntry m WHERE m.recipient = 'savage.opress11'
+INFO: postMessage : pwd=5dh2u60iqac41y4, msg=MSG [id=null, sender=bill.crouse14@ourorg0, destination=[hotblack.desiato15@ourorg0, savage.opress11@ourorg0, radagast12@ourorg0]]INFO: postMessage : pwd=5dh2u60iqac41y4, msg=MSG [id=null, sender=bill.crouse14@ourorg0, destination=[hotblack.desiato15@ourorg0]]INFO: postMessage : pwd=y820c3564u, msg=MSG [id=null, sender=hotblack.desiato15@ourorg0, destination=[bill.crouse14@ourorg0, radagast12@ourorg0]]INFO: postMessage : pwd=y820c3564u, msg=MSG [id=null, sender=hotblack.desiato15@ourorg0, destination=[bill.crouse14@ourorg0, savage.opress11@ourorg0]]INFO: postMessage : pwd=3g8q5l50, msg=MSG [id=null, sender=grogu13@ourorg0, destination=[hotblack.desiato15@ourorg0, radagast12@ourorg0, savage.opress11@ourorg0]]INFO: postMessage : pwd=y820c3564u, msg=MSG [id=null, sender=hotblack.desiato15@ourorg0, destination=[bill.crouse14@ourorg0]]INFO: postMessage : pwd=y820c3564u, msg=MSG [id=null, sender=hotblack.desiato15@ourorg0, destination=[grogu13@ourorg0]]INFO: postMessage : pwd=3j2t1b0biel962f, msg=MSG [id=null, sender=savage.opress11@ourorg0, destination=[hotblack.desiato15@ourorg0]]INFO: postMessage : pwd=5dh2u60iqac41y4, msg=MSG [id=null, sender=bill.crouse14@ourorg0, destination=[grogu13@ourorg0]]INFO: postMessage : pwd=3j2t1b0biel962f, msg=MSG [id=null, sender=savage.opress11@ourorg0, destination=[bill.crouse14@ourorg0, hotblack.desiato15@ourorg0, grogu13@ourorg0]]INFO: getAllInboxMessages : name=savage.opress11
+-----------------------------------------------------------------------------------
+messages1.ourorg0
+-----------------------------------------------------------------------------------
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Topic: messages-ourorg0 already exists...
+java.util.concurrent.ExecutionException: org.apache.kafka.common.errors.TopicExistsException: Topic 'messages-ourorg0' already exists.
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:396)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2073)
+	at org.apache.kafka.common.internals.KafkaFutureImpl.get(KafkaFutureImpl.java:155)
+	at sd2526.trab.impl.kafka.KafkaUtils.createTopic(KafkaUtils.java:34)
+	at sd2526.trab.impl.kafka.KafkaUtils.createTopic(KafkaUtils.java:22)
+	at sd2526.trab.impl.replicated.ReplicatedMessages.<init>(ReplicatedMessages.java:75)
+	at sd2526.trab.impl.replicated.ReplicatedMessages.getInstance(ReplicatedMessages.java:92)
+	at sd2526.trab.impl.rest.servers.RestReplicatedMessagesServer.main(RestReplicatedMessagesServer.java:31)
+Caused by: org.apache.kafka.common.errors.TopicExistsException: Topic 'messages-ourorg0' already exists.
+INFO: HHH000001: Hibernate ORM core version 7.2.4.FinalWARN: HHH10001002: Using built-in connection pool (not intended for production use)INFO: HHH10001005: Database info:
+	Database JDBC URL [jdbc:hsqldb:file:/tmp/foo]
+	Database driver: HSQL Database Engine Driver
+	Database dialect: HSQLDialect
+	Database version: 2.7.4
+	Default catalog/schema: PUBLIC/PUBLIC
+	Autocommit mode: false
+	Isolation level: READ_COMMITTED
+	JDBC fetch size: none
+	Pool: DriverManagerConnectionProvider
+	Minimum pool size: 1
+Hibernate: drop table if exists InboxEntry cascade 
+Hibernate: drop table if exists Message cascade 
+Hibernate: drop table if exists Message_destination cascade 
+Hibernate: drop table if exists User cascade 
+Hibernate: create table InboxEntry (id varchar(255), mid varchar(255) not null, recipient varchar(255) not null, primary key (mid, recipient))
+Hibernate: create table Message (creationTime bigint not null, contents varchar(16384), id varchar(255) not null, sender varchar(255), subject varchar(255), primary key (id))
+Hibernate: create table Message_destination (Message_id varchar(255) not null, destination varchar(255))
+Hibernate: create table User (displayName varchar(255), domain varchar(255), name varchar(255) not null, pwd varchar(255), primary key (name))
+Hibernate: alter table InboxEntry add constraint FK_INBOX_MESSAGE FOREIGN KEY (id) REFERENCES Message(id) ON DELETE RESTRICT
+Hibernate: alter table Message_destination add constraint FK490i61489hp4breu8d0xkaokn foreign key (Message_id) references Message
+Hibernate: SELECT count(*) FROM Message
+MY DOMAIN:ourorg0
+	Maximum pool size: 64INFO: ReplicatedMessages started for domain=ourorg0 topic=messages-ourorg0WARNING: A provider sd2526.trab.impl.rest.servers.RestReplicatedMessagesResource registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider sd2526.trab.impl.rest.servers.RestReplicatedMessagesResource will be ignored. INFO: Starting discovery on multicast group: /226.226.226.226, port: 2266
+INFO: Starting Discovery announcements on: /226.226.226.226:2266 for: Messages@ourorg0 -> https://messages1.ourorg0:4567/rest
+INFO: Messages Server ready @ https://messages1.ourorg0:4567/rest
+Hibernate: insert into Message (contents,creationTime,sender,subject,id) values (?,?,?,?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message (contents,creationTime,sender,subject,id) values (?,?,?,?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message (contents,creationTime,sender,subject,id) values (?,?,?,?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message (contents,creationTime,sender,subject,id) values (?,?,?,?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message (contents,creationTime,sender,subject,id) values (?,?,?,?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message (contents,creationTime,sender,subject,id) values (?,?,?,?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message (contents,creationTime,sender,subject,id) values (?,?,?,?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message (contents,creationTime,sender,subject,id) values (?,?,?,?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message (contents,creationTime,sender,subject,id) values (?,?,?,?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message (contents,creationTime,sender,subject,id) values (?,?,?,?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+
+-----------------------------------------------------------------------------------
+messages2.ourorg0
+-----------------------------------------------------------------------------------
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Topic: messages-ourorg0 already exists...
+java.util.concurrent.ExecutionException: org.apache.kafka.common.errors.TopicExistsException: Topic 'messages-ourorg0' already exists.
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:396)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2073)
+	at org.apache.kafka.common.internals.KafkaFutureImpl.get(KafkaFutureImpl.java:155)
+	at sd2526.trab.impl.kafka.KafkaUtils.createTopic(KafkaUtils.java:34)
+	at sd2526.trab.impl.kafka.KafkaUtils.createTopic(KafkaUtils.java:22)
+	at sd2526.trab.impl.replicated.ReplicatedMessages.<init>(ReplicatedMessages.java:75)
+	at sd2526.trab.impl.replicated.ReplicatedMessages.getInstance(ReplicatedMessages.java:92)
+	at sd2526.trab.impl.rest.servers.RestReplicatedMessagesServer.main(RestReplicatedMessagesServer.java:31)
+Caused by: org.apache.kafka.common.errors.TopicExistsException: Topic 'messages-ourorg0' already exists.
+INFO: HHH000001: Hibernate ORM core version 7.2.4.FinalWARN: HHH10001002: Using built-in connection pool (not intended for production use)INFO: HHH10001005: Database info:
+	Database JDBC URL [jdbc:hsqldb:file:/tmp/foo]
+	Database driver: HSQL Database Engine Driver
+	Database dialect: HSQLDialect
+	Database version: 2.7.4
+	Default catalog/schema: PUBLIC/PUBLIC
+	Autocommit mode: false
+	Isolation level: READ_COMMITTED
+	JDBC fetch size: none
+	Pool: DriverManagerConnectionProvider
+	Minimum pool size: 1
+Hibernate: drop table if exists InboxEntry cascade 
+Hibernate: drop table if exists Message cascade 
+Hibernate: drop table if exists Message_destination cascade 
+Hibernate: drop table if exists User cascade 
+Hibernate: create table InboxEntry (id varchar(255), mid varchar(255) not null, recipient varchar(255) not null, primary key (mid, recipient))
+Hibernate: create table Message (creationTime bigint not null, contents varchar(16384), id varchar(255) not null, sender varchar(255), subject varchar(255), primary key (id))
+Hibernate: create table Message_destination (Message_id varchar(255) not null, destination varchar(255))
+Hibernate: create table User (displayName varchar(255), domain varchar(255), name varchar(255) not null, pwd varchar(255), primary key (name))
+Hibernate: alter table InboxEntry add constraint FK_INBOX_MESSAGE FOREIGN KEY (id) REFERENCES Message(id) ON DELETE RESTRICT
+Hibernate: alter table Message_destination add constraint FK490i61489hp4breu8d0xkaokn foreign key (Message_id) references Message
+Hibernate: SELECT count(*) FROM Message
+MY DOMAIN:ourorg0
+	Maximum pool size: 64INFO: ReplicatedMessages started for domain=ourorg0 topic=messages-ourorg0WARNING: A provider sd2526.trab.impl.rest.servers.RestReplicatedMessagesResource registered in SERVER runtime does not implement any provider interfaces applicable in the SERVER runtime. Due to constraint configuration problems the provider sd2526.trab.impl.rest.servers.RestReplicatedMessagesResource will be ignored. INFO: Starting discovery on multicast group: /226.226.226.226, port: 2266
+INFO: Starting Discovery announcements on: /226.226.226.226:2266 for: Messages@ourorg0 -> https://messages2.ourorg0:4567/rest
+INFO: Messages Server ready @ https://messages2.ourorg0:4567/rest
+Hibernate: insert into Message (contents,creationTime,sender,subject,id) values (?,?,?,?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message (contents,creationTime,sender,subject,id) values (?,?,?,?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message (contents,creationTime,sender,subject,id) values (?,?,?,?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message (contents,creationTime,sender,subject,id) values (?,?,?,?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message (contents,creationTime,sender,subject,id) values (?,?,?,?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message (contents,creationTime,sender,subject,id) values (?,?,?,?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message (contents,creationTime,sender,subject,id) values (?,?,?,?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message (contents,creationTime,sender,subject,id) values (?,?,?,?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message (contents,creationTime,sender,subject,id) values (?,?,?,?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message (contents,creationTime,sender,subject,id) values (?,?,?,?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into InboxEntry (mid,recipient) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+Hibernate: insert into Message_destination (Message_id,destination) values (?,?)
+
+=================================================================================
+
+
+Continue (Y/N) ?
+oops...
+Test complete...

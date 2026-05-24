@@ -28,10 +28,10 @@ MESSAGES_REST_PROXY_SERVER_MAINCLASS=sd2526.trab.impl.rest.servers.RestZohoMessa
 MESSAGES_REST_PROXY_PORT=4567
 MESSAGES_REST_PROXY_EXTRA_ARGS=-secret secret
 
-MESSAGES_REP_SERVER_MAINCLASS=
-MESSAGES_REP_PORT=
-MESSAGES_REP_EXTRA_ARGS_FIRST=
-MESSAGES_REP_EXTRA_ARGS_OTHER=
+MESSAGES_REP_SERVER_MAINCLASS=sd2526.trab.impl.rest.servers.RestReplicatedMessagesServer
+MESSAGES_REP_PORT=4567
+MESSAGES_REP_EXTRA_ARGS_FIRST=-secret secret
+MESSAGES_REP_EXTRA_ARGS_OTHER=-secret secret
 
 USERS_KEYSTORES=users.ourorg0,users-0.ks,changeit users.ourorg1,users-1.ks,changeit users.ourorg2,users-2.ks,changeit
 SERVERS_KEYSTORES=messages0.ourorg0,messages0-0.ks,changeit messages1.ourorg0,messages1-0.ks,changeit messages2.ourorg0,messages2-0.ks,changeit messages0.ourorg1,messages0-1.ks,changeit messages1.ourorg1,messages1-1.ks,changeit messages2.ourorg1,messages2-1.ks,changeit messages.ourorg2,messages-2.ks,changeit
