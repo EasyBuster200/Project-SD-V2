@@ -16,6 +16,7 @@ public class MessagesVersionFilter implements ContainerRequestFilter, ContainerR
 
   public static final ThreadLocal<Long> requestVersion = new ThreadLocal<>();
 
+  /** Incoming: Parses the header (if any) and stashes it in the ThreadLocal */
   @Override
   public void filter(ContainerRequestContext req) throws IOException {
     String v = req.getHeaderString(VERSION_HEADER);
@@ -30,6 +31,7 @@ public class MessagesVersionFilter implements ContainerRequestFilter, ContainerR
     }
   }
 
+  /** Outgoing: stamp outgoing responses with the current applied version. */
   @Override
   public void filter(ContainerRequestContext req, ContainerResponseContext resp) throws IOException {
     long current = SyncPoint.getSyncPoint().currentVersion();
@@ -37,6 +39,7 @@ public class MessagesVersionFilter implements ContainerRequestFilter, ContainerR
     requestVersion.remove();
   }
 
+  /** Helper method to read the current request's version */
   public static long currentRequestVersion() {
     Long v = requestVersion.get();
     return v == null ? 0L : v;

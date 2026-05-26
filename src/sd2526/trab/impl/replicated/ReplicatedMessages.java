@@ -50,22 +50,46 @@ public class ReplicatedMessages extends JavaBaseService implements Messages, Adm
 
   private static final String KAFKA_ADDR = "localhost:9092, kafka:9092";
 
+  /** One Kafka topic per replicated domain */
   private final String topic;
   private final KafkaPublisher publisher;
   private final SyncPoint syncPoint;
 
+  /**
+   * Mid counter, incremented on every local POST by the consumer.
+   * Deterministic across replicas because they consume the same operations, in
+   * the same order
+   */
   private final AtomicLong counter = new AtomicLong(0L);
 
+  /**
+   * originID -> assigned mid
+   */
   private final ConcurrentHashMap<String, String> originIdToMid = new ConcurrentHashMap<>();
 
+  /**
+   * Snapshot of recent messages by mid. Allows DELETE to check author ownership
+   * without having to check the database, when called shortly after POST.
+   */
   private final Cache<String, Message> messagesCache = CacheBuilder.newBuilder()
       .expireAfterWrite(Duration.ofMillis(MESSAGES_CACHE_EXPIRATION))
       .build();
 
+  /**
+   * Largest sid seen by the source domain.
+   * 
+   * Drops stale cross-domain retries that could bring back deleted messages.
+   */
   private final ConcurrentHashMap<String, Long> largestSidFromDomain = new ConcurrentHashMap<>();
 
+  /**
+   * Mids that have been deleted.
+   * 
+   * Used to reject REMOTE_POSTs that could arrive later
+   */
   private final ConcurrentHashMap<String, Boolean> deletedMids = new ConcurrentHashMap<>();
 
+  /** Per-destination-domain single-thread executor for outbound calls. */
   private final JobDispatcher jobs = new JobDispatcher();
 
   private static ReplicatedMessages instance;
@@ -76,10 +100,13 @@ public class ReplicatedMessages extends JavaBaseService implements Messages, Adm
     this.publisher = KafkaPublisher.createPublisher(KAFKA_ADDR);
     this.syncPoint = SyncPoint.getSyncPoint();
 
+    // Pre-warming Hibernate, because without it the first apply takes several
+    // seconds and sometimes the tester would end/give-up before the client gets a
+    // response back
     try {
       DB.select("SELECT count(*) FROM Message", Long.class);
     } catch (Exception ignored) {
-
+      // A fail here still forces Hibernate to come-up
     }
 
     KafkaSubscriber subscriber = KafkaSubscriber.createSubscriber(KAFKA_ADDR, List.of(topic));
@@ -95,18 +122,20 @@ public class ReplicatedMessages extends JavaBaseService implements Messages, Adm
 
   @Override
   public Result<String> postMessage(String pwd, Message msg) {
-    System.err.println(">>> postMessage entry: sender=" + msg.getSender() + " originId=" + msg.originId());
     Log.info(() -> "postMessage : pwd=%s, msg=%s".formatted(pwd, msg));
     if (badParams(pwd, msg) || msg.getSender() == null)
       return error(BAD_REQUEST);
 
+    // Authenticates the sender.
     Result<User> uRes = getUser(msg.getSender(), pwd);
     if (!uRes.isOK())
       return error(uRes.error());
 
+    // Pre formats the sender address, so all replicas see the same string.
     User u = uRes.value();
     msg.setSender("%s <%s@%s>".formatted(u.getDisplayName(), u.getName(), u.getDomain()));
 
+    // Pre resolves known/unknown local receivers.
     List<String> local = msg.getDestination().stream().filter(this::isLocalAddress).toList();
     Set<String> known = new HashSet<>(local);
     Set<String> unknown = new HashSet<>();
@@ -118,12 +147,11 @@ public class ReplicatedMessages extends JavaBaseService implements Messages, Adm
       }
     }
 
+    // Publishes a POST operation, and waits for the local consumer to apply it
     long offset = publisher.publish(topic, JSON.encode(Operation.post(msg, known, unknown)));
-    System.err.println(">>> published at offset=" + offset);
     if (offset < 0)
       return error(INTERNAL_ERROR);
     String res = syncPoint.waitForResult(offset);
-    System.err.println(">>> waitForResult returned: " + res); // TODO: remove .err
     return ResultEnvelope.decode(res, String.class);
   }
 
@@ -199,6 +227,7 @@ public class ReplicatedMessages extends JavaBaseService implements Messages, Adm
   public Result<Void> remotePostMessage(Message msg) {
     Log.info(() -> "remotePostMessage : msg=%s".formatted(msg));
 
+    // Like in postMessage, pre determine local known/unknown recievers
     List<String> local = msg.getDestination().stream().filter(this::isLocalAddress).toList();
     Set<String> known = new HashSet<>(local);
     Set<String> unknown = new HashSet<>();
@@ -237,6 +266,8 @@ public class ReplicatedMessages extends JavaBaseService implements Messages, Adm
     return ResultEnvelope.decode(res, Void.class);
   }
 
+  // Consumer Side
+
   private final class ReplicaConsumer implements RecordProcessor {
     @Override
     public void onReceive(ConsumerRecord<String, String> r) {
@@ -268,11 +299,13 @@ public class ReplicatedMessages extends JavaBaseService implements Messages, Adm
   private String applyPost(Operation.PostPayload p) {
     Message msg = p.msg();
 
+    // If a POST is being retried than assign the same mid, rather than a new one
     String existing = originIdToMid.get(msg.originId());
     if (existing != null) {
       return ResultEnvelope.encode(Result.ok(existing));
     }
 
+    // Generate the mid (deterministic)
     String mid = "%s+%04d".formatted(THIS_DOMAIN, counter.incrementAndGet());
     msg.setId(mid);
     originIdToMid.put(msg.originId(), mid);
@@ -283,6 +316,7 @@ public class ReplicatedMessages extends JavaBaseService implements Messages, Adm
     if (!p.unknownLocal().isEmpty())
       generateUnknownNotifications(p.unknownLocal(), msg);
 
+    // Outbound remote dispatch.
     Set<String> remote = msg.getDestination().stream()
         .filter(Predicate.not(this::isLocalAddress))
         .collect(Collectors.toSet());
@@ -298,6 +332,7 @@ public class ReplicatedMessages extends JavaBaseService implements Messages, Adm
   }
 
   private String applyDelete(Operation.DeletePayload p) {
+    // Look in the cache first, if not there then check database
     Message cached = messagesCache.getIfPresent(p.mid());
     if (cached == null) {
       Result<Message> fromDB = DB.getOne(p.mid(), Message.class);
@@ -305,6 +340,8 @@ public class ReplicatedMessages extends JavaBaseService implements Messages, Adm
         return ResultEnvelope.encode(Result.<Void>error(FORBIDDEN));
       cached = fromDB.value();
     }
+
+    // Check author ownership
     if (!p.name().equals(getName(cached.senderAddress())))
       return ResultEnvelope.encode(Result.<Void>error(FORBIDDEN));
 
@@ -313,6 +350,8 @@ public class ReplicatedMessages extends JavaBaseService implements Messages, Adm
     for (String d : domains) {
       if (isLocalDomain(d)) {
         deleteLocally(msg.getId());
+        // Remember the delete, so a later arriving REMOTE_POST won't re-create the
+        // message
         deletedMids.put(msg.getId(), Boolean.TRUE);
       } else {
         jobs.submit(d, () -> reTry(
@@ -326,21 +365,25 @@ public class ReplicatedMessages extends JavaBaseService implements Messages, Adm
   private String applyRemotePost(Operation.RemotePostPayload p) {
     Message msg = p.msg();
 
+    // prevent a late retry from resurrecting a message that was already deleted, by
+    // dropping anything less than or equal to the largest sid seen per source
+    // domain
     String sourceDomain = sourceDomainOf(msg.getId());
     long sid = sidOf(msg.getId());
     if (sourceDomain != null && sid >= 0) {
       long largest = largestSidFromDomain.getOrDefault(sourceDomain, -1L);
       if (sid <= largest) {
-        // Already seen a strictly-greater sid; this is a stale retry.
         return ResultEnvelope.encode(Result.<Void>ok());
       }
       largestSidFromDomain.put(sourceDomain, sid);
     }
 
+    // If message has already been deleted ignore
     if (deletedMids.containsKey(msg.getId())) {
       return ResultEnvelope.encode(Result.<Void>ok());
     }
 
+    // Idempotency for cross-domain duplicates with the same originId.
     String existing = originIdToMid.get(msg.originId());
     if (existing != null) {
       return ResultEnvelope.encode(Result.<Void>ok());
@@ -369,6 +412,11 @@ public class ReplicatedMessages extends JavaBaseService implements Messages, Adm
     return ResultEnvelope.encode(Result.<Void>ok());
   }
 
+  // Helper methods
+
+  /**
+   * Inserts the message + one InboxEntry per known local recipient.
+   */
   private void persistLocally(Collection<String> knownAddresses, Message msg) {
     DB.transaction(hibernate -> {
       hibernate.persistOne(msg);
@@ -378,6 +426,10 @@ public class ReplicatedMessages extends JavaBaseService implements Messages, Adm
     });
   }
 
+  /**
+   * For each unknown recipient, create a "user not found" notification
+   * delivered to the sender.
+   */
   private void generateUnknownNotifications(Set<String> unknown, Message msg) {
     String senderDomain = getDomain(msg.senderAddress());
     for (String addr : unknown) {
@@ -396,6 +448,12 @@ public class ReplicatedMessages extends JavaBaseService implements Messages, Adm
     }
   }
 
+  /**
+   * Fans out to each remote destination domain via AdminMessagesClient.
+   * 
+   * On TIMEOUT, generates a delivery-timeout notification in the sender's
+   * inbox.
+   */
   private void dispatchRemote(Set<String> remoteAddresses, Message msg) {
     var byDomain = remoteAddresses.stream().collect(
         Collectors.groupingBy(this::getDomain,
@@ -421,6 +479,7 @@ public class ReplicatedMessages extends JavaBaseService implements Messages, Adm
     }
   }
 
+  /** Removes the message itself plus every InboxEntry that references it. */
   private void deleteLocally(String mid) {
     var sql = "SELECT * FROM InboxEntry e WHERE e.mid = '%s'".formatted(mid);
     DB.transaction(hibernate -> {
@@ -430,6 +489,10 @@ public class ReplicatedMessages extends JavaBaseService implements Messages, Adm
     });
   }
 
+  /**
+   * Parses the source domain name, returns null if unparseable.
+   * Ex: "ourorg0+0007" -> "ourorg0".
+   */
   private static String sourceDomainOf(String mid) {
     if (mid == null)
       return null;
@@ -437,6 +500,11 @@ public class ReplicatedMessages extends JavaBaseService implements Messages, Adm
     return i > 0 ? mid.substring(0, i) : null;
   }
 
+  /**
+   * Parses the sid of a domain, returns -1 if unparseable.
+   * 
+   * "ourorg0+0007" -> 7.
+   */
   private static long sidOf(String mid) {
     if (mid == null)
       return -1;
@@ -450,6 +518,9 @@ public class ReplicatedMessages extends JavaBaseService implements Messages, Adm
     }
   }
 
+  /**
+   * Authenticate the user via the Users service.
+   */
   private Result<User> getUser(String userOrAddress, String pwd) {
     try {
       String name = userOrAddress.split("@", 2)[0];
@@ -460,6 +531,11 @@ public class ReplicatedMessages extends JavaBaseService implements Messages, Adm
     }
   }
 
+  /**
+   * Single-thread executor pool, for each Domain.
+   * 
+   * Serializes outbound calls so that a slow domain won't block others
+   */
   private static final class JobDispatcher {
     private final ConcurrentHashMap<String, ExecutorService> executors = new ConcurrentHashMap<>();
 
@@ -475,6 +551,9 @@ public class ReplicatedMessages extends JavaBaseService implements Messages, Adm
     }
   }
 
+  /**
+   * Escapes single quotes for safe insert into SQL string literals
+   */
   private static String esc(String s) {
     return s == null ? "" : s.replace("'", "''");
   }

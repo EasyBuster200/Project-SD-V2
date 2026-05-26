@@ -9,6 +9,10 @@ public class SyncPoint {
 
 	private SyncPoint() {
 		this.result = new ConcurrentHashMap<Long, String>();
+
+		// Had to change to -1, because when starting at 0 I was getting errors because
+		// waitForResult(0) wouldn't actully wait, and therefore would instantly return
+		// before the consumer could apply the operation
 		this.version = -1;
 	}
 
@@ -51,6 +55,9 @@ public class SyncPoint {
 		notifyAll();
 	}
 
+	/**
+	 * @return this replica's current version, (-1 if no operation happened)
+	 */
 	public synchronized long currentVersion() {
 		return version;
 	}

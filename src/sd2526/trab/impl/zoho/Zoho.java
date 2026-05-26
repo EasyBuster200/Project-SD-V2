@@ -12,7 +12,6 @@ import com.github.scribejava.core.oauth.OAuth20Service;
 import sd2526.trab.impl.utils.JSON;
 import sd2526.trab.impl.zoho.msgs.ZohoAccount;
 import sd2526.trab.impl.zoho.msgs.ZohoAccountReply;
-import sd2526.trab.impl.zoho.msgs.ZohoGenericReply;
 import sd2526.trab.impl.zoho.msgs.ZohoMessageContent;
 import sd2526.trab.impl.zoho.msgs.ZohoMessageContentReply;
 import sd2526.trab.impl.zoho.msgs.ZohoMessageListReply;
@@ -22,19 +21,22 @@ import sd2526.trab.impl.zoho.msgs.ZohoSendEmailRequest;
 public class Zoho {
 	static final String MAIL_API_BASE = "https://mail.zoho.eu/api";
 
-	static final String CLIENT_ID       = "1000.90GQH3FX3BMM8CUMDK3J83CDFFKP6K";
-	static final String CLIENT_SECRET   = "268b83287189188fc4638a7a900d41c642176f6a14";
-	static final String REFRESH_TOKEN   = "1000.4046598428f6fa1a3a0a35eb10dca53d.34b4e81d9b86c7b5c16a62781804bf04";
+	// OAuth2 Client credentials.
+	static final String CLIENT_ID = "1000.90GQH3FX3BMM8CUMDK3J83CDFFKP6K";
+	static final String CLIENT_SECRET = "268b83287189188fc4638a7a900d41c642176f6a14";
+	static final String REFRESH_TOKEN = "1000.4046598428f6fa1a3a0a35eb10dca53d.34b4e81d9b86c7b5c16a62781804bf04";
 
-	static final String ACCOUNT_ID      = "8668419000000002002";
+	// Identifiers for the mailbox the system works on.
+	static final String ACCOUNT_ID = "8668419000000002002";
 	static final String INBOX_FOLDER_ID = "8668419000000002008";
-	static final String FROM_ADDRESS    = "dcr.coelho@zohomail.eu";
+	static final String FROM_ADDRESS = "dcr.coelho@zohomail.eu";
 
+	// Zoho Mail REST path segments
 	private static final String ACCOUNTS = "/accounts";
 	private static final String MESSAGES = "/messages";
-	private static final String FOLDERS  = "/folders";
-	private static final String VIEW     = "/view";
-	private static final String CONTENT  = "/content";
+	private static final String FOLDERS = "/folders";
+	private static final String VIEW = "/view";
+	private static final String CONTENT = "/content";
 
 	final OAuth20Service service;
 	final ZohoTokenManager tokenManager;
@@ -52,6 +54,7 @@ public class Zoho {
 		return instance;
 	}
 
+	/** Returns the account associated with the saved credentials */
 	public ZohoAccount getAccount() throws Exception {
 		var accessToken = new OAuth2AccessToken(tokenManager.getValidAccessToken());
 
@@ -72,6 +75,7 @@ public class Zoho {
 		}
 	}
 
+	/** Sends an email from the {@link #FROM_ADDRESS} to {@code toAddress} */
 	public boolean sendEmail(String toAddress, String subject, String body) throws Exception {
 		var accessToken = new OAuth2AccessToken(tokenManager.getValidAccessToken());
 
@@ -93,6 +97,7 @@ public class Zoho {
 		}
 	}
 
+	/** Returns inbox message summaries */
 	public List<ZohoMessageSummary> listInbox() throws Exception {
 		var accessToken = new OAuth2AccessToken(tokenManager.getValidAccessToken());
 
@@ -113,6 +118,12 @@ public class Zoho {
 		}
 	}
 
+	/**
+	 * Returns the body os a specific inbox message.
+	 * 
+	 * Zoho wraps the body in HTML, so the result must be ran through
+	 * {@link HtmlStripper} to get the original text
+	 */
 	public String getEmailContent(String zohoMessageId) throws Exception {
 		var accessToken = new OAuth2AccessToken(tokenManager.getValidAccessToken());
 
@@ -135,6 +146,7 @@ public class Zoho {
 		}
 	}
 
+	/** Deletes one inbox message by its Zoho assigned ID. */
 	public boolean deleteEmail(String zohoMessageId) throws Exception {
 		var accessToken = new OAuth2AccessToken(tokenManager.getValidAccessToken());
 
@@ -156,6 +168,14 @@ public class Zoho {
 		}
 	}
 
+	/**
+	 * Lists the inbox and deletes every message.
+	 * 
+	 * Used at server start up, when the first argument is {@code true}, to start
+	 * with a clean mailbox.
+	 * 
+	 * @return number of messages deleted
+	 */
 	public int emptyInbox() throws Exception {
 		int deleted = 0;
 		for (ZohoMessageSummary msg : listInbox()) {

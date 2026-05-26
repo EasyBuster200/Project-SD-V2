@@ -29,6 +29,13 @@ import sd2526.trab.impl.java.clients.Clients;
 import sd2526.trab.impl.java.servers.JavaBaseService;
 import sd2526.trab.impl.zoho.msgs.ZohoMessageSummary;
 
+/**
+ * Messages services backed by a Zoho mailbox.
+ * 
+ * Implements the same {@link Messages} + {@link AdminMessages} APIs as
+ * {@code JavaMessages}, but uses Zoho mail to store the messages instead of
+ * hibernate.
+ */
 public class ZohoMessages extends JavaBaseService implements Messages, AdminMessages {
 
   private static final Logger Log = Logger.getLogger(ZohoMessages.class.getName());
@@ -39,6 +46,11 @@ public class ZohoMessages extends JavaBaseService implements Messages, AdminMess
   private final AtomicLong counter = new AtomicLong(0L);
   private final JobDispatcher jobs = new JobDispatcher();
 
+  /**
+   * Makes sure that identical requests always resolve to the same mid.
+   * 
+   * originId -> mid.
+   */
   private final ConcurrentHashMap<String, String> originIdCache = new ConcurrentHashMap<>();
 
   private static ZohoMessages instance;
@@ -52,6 +64,12 @@ public class ZohoMessages extends JavaBaseService implements Messages, AdminMess
     return instance;
   }
 
+  /**
+   * Wipes the mailbox.
+   * 
+   * Called by {@code RestZohoMessagesServer} at startup when its first launch argument
+   * is true, to give a clean inbox to work with.
+   */
   public void wipeMailbox() {
     try {
       int n = zoho.emptyInbox();
@@ -60,6 +78,8 @@ public class ZohoMessages extends JavaBaseService implements Messages, AdminMess
       Log.severe("Failed to wipe mailbox: " + x.getMessage());
     }
   }
+
+  // Write Methods
 
   @Override
   public Result<String> postMessage(String pwd, Message msg) {
@@ -70,6 +90,8 @@ public class ZohoMessages extends JavaBaseService implements Messages, AdminMess
     return getUser(msg.getSender(), pwd)
         .thenWith(user -> doPost(user, msg));
   }
+
+  // Read methods
 
   @Override
   public Result<Message> getInboxMessage(String name, String mid, String pwd) {
@@ -140,6 +162,7 @@ public class ZohoMessages extends JavaBaseService implements Messages, AdminMess
         });
   }
 
+  // Delete Methods
   @Override
   public Result<Void> removeInboxMessage(String name, String mid, String pwd) {
     Log.info(() -> "removeInboxMessage : name=%s, mid=%s".formatted(name, mid));
@@ -199,6 +222,8 @@ public class ZohoMessages extends JavaBaseService implements Messages, AdminMess
         });
   }
 
+  // Cross-domain Methods
+
   @Override
   public Result<Void> remotePostMessage(Message msg) {
     Log.info(() -> "remotePostMessage : msg=%s".formatted(msg));
@@ -240,6 +265,12 @@ public class ZohoMessages extends JavaBaseService implements Messages, AdminMess
     }
   }
 
+  // Helper Methods
+
+  /**
+   * Authenticates a user. Accepts either just the username or the full
+   * address.
+   */
   private Result<User> getUser(String userOrAddress, String pwd) {
     try {
       String name = userOrAddress.split("@", 2)[0];
@@ -250,11 +281,22 @@ public class ZohoMessages extends JavaBaseService implements Messages, AdminMess
     }
   }
 
+  /**
+   * Same as {@link #getUser} but for read paths where the user is already a
+   * name.
+   */
   private Result<User> verifyLocalUser(String name, String pwd) {
     Result<User> r = Clients.UsersClient.get().getUser(name, pwd);
     return r;
   }
 
+  /**
+   * Core post logic : assigns a mid, formats the sender, posts to local inbox and
+   * dispatches to remote domains in parallel
+   * 
+   * On TIMEOUT to remote domains, creates a delivery-timeout notification in the
+   * sender's mailbox.
+   */
   private Result<String> doPost(User sender, Message msg) {
     String previousMid = originIdCache.get(msg.originId());
     if (previousMid != null)
@@ -297,6 +339,7 @@ public class ZohoMessages extends JavaBaseService implements Messages, AdminMess
     return ok(msg.getId());
   }
 
+  /** Sends a single email to the mailbox */
   private void postLocally(Collection<String> addresses, Message msg) {
     if (!addresses.isEmpty()) {
       try {
@@ -307,6 +350,7 @@ public class ZohoMessages extends JavaBaseService implements Messages, AdminMess
     }
   }
 
+  /** Scans the inbox to find the message with the given {@code mid} */
   private Message findMessageByMid(String mid) throws Exception {
     for (ZohoMessageSummary summary : zoho.listInbox()) {
       Message m = fetchAndDecode(summary);
@@ -316,6 +360,7 @@ public class ZohoMessages extends JavaBaseService implements Messages, AdminMess
     return null;
   }
 
+  /** Scans for the Zoho given email id from the given {@code mid} */
   private String findZohoIdByMid(String mid) throws Exception {
     for (ZohoMessageSummary summary : zoho.listInbox()) {
       Message m = fetchAndDecode(summary);
@@ -325,15 +370,22 @@ public class ZohoMessages extends JavaBaseService implements Messages, AdminMess
     return null;
   }
 
+  /** Pulls a message's HTML body from Zoho, and strips it back to plain text */
   private Message fetchAndDecode(ZohoMessageSummary summary) throws Exception {
     String html = zoho.getEmailContent(summary.messageId());
     if (html == null)
-        return null;
+      return null;
     String plain = HtmlStripper.strip(html);
     String subject = HtmlStripper.strip(summary.subject());
     return MessageBodyCodec.decode(plain, subject);
-}
+  }
 
+  /**
+   * Single-thread executor pool, per-domain.
+   * 
+   * Outbound remote calls are serialized, so a slow domain won't block calls to
+   * other domains.
+   */
   private static final class JobDispatcher {
     private final ConcurrentHashMap<String, ExecutorService> executors = new ConcurrentHashMap<>();
 

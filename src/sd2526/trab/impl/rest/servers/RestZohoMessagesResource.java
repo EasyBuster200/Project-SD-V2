@@ -8,6 +8,12 @@ import sd2526.trab.api.rest.RestMessages;
 import sd2526.trab.impl.api.rest.RestAdminMessages;
 import sd2526.trab.impl.zoho.ZohoMessages;
 
+/**
+ * REST resource for the Zoho-backed Messages service.
+ * 
+ * Delegates every call to {@link ZohoMessages} and translates the
+ * returned {@code Result} to either a value or an HTTP error.
+ */
 @Singleton
 public class RestZohoMessagesResource extends RestResource implements RestMessages, RestAdminMessages {
 

@@ -2,6 +2,10 @@ package sd2526.trab.impl.zoho;
 
 import java.util.regex.Pattern;
 
+/**
+ * Helper class that recovers the origianl text content from the HTML wrapped
+ * body Zoho returns for {@code /content} requests.
+ */
 final class HtmlStripper {
 
 	private static final Pattern TAG = Pattern.compile("<[^>]+>");
@@ -36,5 +40,6 @@ final class HtmlStripper {
 		return s;
 	}
 
-	private HtmlStripper() {}
+	private HtmlStripper() {
+	}
 }

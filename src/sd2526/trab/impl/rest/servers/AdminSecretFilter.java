@@ -8,6 +8,14 @@ import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.ext.Provider;
 import sd2526.trab.impl.utils.ServerSecret;
 
+/**
+ * Server-side enforcement of the shared secret.
+ * 
+ * Inspects every incoming request, and if the path has {@code /admin}, rejects
+ * it unless the client also supplies a {@link ServerSecret#HEADER} header.
+ * 
+ * Non admin requests are not affected.
+ */
 @Provider
 public class AdminSecretFilter implements ContainerRequestFilter {
 
@@ -22,6 +30,7 @@ public class AdminSecretFilter implements ContainerRequestFilter {
         String expected = ServerSecret.get();
         String provided = ctx.getHeaderString(ServerSecret.HEADER);
 
+        // If no secret is configurted then let the admin requests thorugh.
         if (expected == null || expected.isEmpty()) {
             return;
         }

@@ -8,6 +8,9 @@ import sd2526.trab.api.java.Messages;
 import sd2526.trab.impl.utils.ServerSecret;
 import sd2526.trab.impl.zoho.ZohoMessages;
 
+/**
+ * REST server hosting the Zoho-backed Messages service.
+ */
 public class RestZohoMessagesServer extends AbstractRestServer {
 
   public static final int PORT = 4567;
@@ -27,6 +30,7 @@ public class RestZohoMessagesServer extends AbstractRestServer {
   public static void main(String[] args) {
     ServerSecret.parse(args);
 
+    // First argument controls whether to start from a clean mailbox, or not.
     boolean wipe = args.length > 0 && "true".equalsIgnoreCase(args[0]);
     if (wipe) {
       Log.info("Startup arg = true -> wiping Zoho mailbox for clean state.");

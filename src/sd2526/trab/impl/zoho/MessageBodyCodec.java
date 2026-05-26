@@ -5,6 +5,15 @@ import java.util.Set;
 
 import sd2526.trab.api.Message;
 
+/**
+ * Helper class that serializes a {@link Message} into an email body for Zoho,
+ * and also decodes it back when the body is retrieved.
+ * 
+ * Zoho stores subject + body, with no place to attach metadata (mid, sender,
+ * destinations, creationTime), so to round-trip a full message I append the
+ * metadata to the contents after a distinctive separator, and split it back out
+ * on decode.
+ */
 final class MessageBodyCodec {
 
 	static final String SEPARATOR = "------SD2526------";
@@ -20,6 +29,12 @@ final class MessageBodyCodec {
 		return sb.toString();
 	}
 
+	/**
+	 * Splits the body contents on the separator, parses the metadata, and rebuilds
+	 * the Message
+	 * 
+	 * @return decoded Message or {@code null} if there's no separator in the body.
+	 */
 	static Message decode(String body, String subject) {
 		if (body == null)
 			return null;
@@ -65,7 +80,8 @@ final class MessageBodyCodec {
 				case "creationTime":
 					try {
 						creationTime = Long.parseLong(value);
-					} catch (NumberFormatException ignored) {}
+					} catch (NumberFormatException ignored) {
+					}
 					break;
 			}
 		}
@@ -75,5 +91,6 @@ final class MessageBodyCodec {
 		return m;
 	}
 
-	private MessageBodyCodec() {}
+	private MessageBodyCodec() {
+	}
 }
